@@ -1,0 +1,47 @@
+* {
+    box-sizing: border-box;
+    outline: none !important;
+    font-family: "Rubik Regular", "Prompt Regular" !important;
+
+    &:focus {
+        outline: none;
+    }
+
+    &::-webkit-scrollbar {
+        height: 5px;
+        width: 5px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+        background: #e9ecef;
+        border-radius: 5px;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+        background: #adb5bd;
+        border-radius: 5px;
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+        background: #343a40;
+        border-radius: 5px;
+    }
+}
+
+.font-medium {
+    font-family: "Rubik Medium", "Prompt Regular" !important;
+}
+
+html,
+body {
+    font-size: 14px;
+    font-family: "Rubik Regular", "Prompt Regular" !important;
+    @apply min-h-screen;
+}
+
+#root {
+    @apply min-h-screen;
+}
