@@ -40,8 +40,10 @@ body {
     font-size: 14px;
     font-family: "Rubik Regular", "Prompt Regular" !important;
     @apply min-h-screen;
+    @apply bg-gray-100;
 }
 
 #root {
     @apply min-h-screen;
+    padding-top: var(--navbar-topest-height);
 }

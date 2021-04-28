@@ -5,12 +5,11 @@ import { Outlet } from "react-router-dom";
 import TopBar from "./TopBar";
 
 const TopbarLayout = () => {
-  const [isMobileNavOpen, setMobileNavOpen] = useState(false);
   return (
-    <div>
-      <TopBar onMobileNavOpen={() => setMobileNavOpen(true)} />
+    <React.Fragment>
+      <TopBar/>
       <Outlet />
-    </div>
+    </React.Fragment>
   );
 };
 
