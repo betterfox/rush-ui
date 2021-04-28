@@ -1,13 +1,13 @@
 /** @jsx jsx */
 import { css, jsx } from '@emotion/react'
+import clsx from 'clsx';
 import React from 'react';
 import tw from 'twin.macro';
 import HeroSection from './HeroSection';
 
 const LandingPage = () => {
     const containerStyle = css`
-        ${tw`container mx-auto`}
-
+        ${tw`pt-12`}
         .section {
             .section-heading {
                 ${tw`border-b mb-4 py-4 mt-4`}
@@ -25,7 +25,7 @@ const LandingPage = () => {
     return <React.Fragment>
         <HeroSection />
 
-        <div css={containerStyle}>
+        <div css={containerStyle} className={clsx('app-container')}>
             <div className="section">
                 <div className="section-heading">
                     <div className="title">Application UI</div>

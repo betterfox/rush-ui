@@ -19,6 +19,7 @@ import {
 import { FiInbox, FiMenu } from "react-icons/fi";
 import AppSearchBox from '@/components/AppSearchBox';
 import NightModeToggle from '@/components/Button/NightModeToggle';
+import clsx from 'clsx';
 
 interface TopbarProps {
   onMobileNavOpen?: () => void;
@@ -29,11 +30,11 @@ const TopBar = ({ onMobileNavOpen, size = "normal", ...rest }: TopbarProps) => {
   const navbarStyle = css`
     height: var(--navbar-topest-height);
     z-index: 1200;
-    ${tw`shadow-none left-0 w-full flex`}
+    ${tw`shadow-none left-0 w-full flex bg-transparent`}
   `;
   const toolBarStyle = css`
     height: var(--navbar-topest-height);
-    ${tw`px-0 pt-0 container mx-auto`}
+    ${tw`px-0 pt-0`}
 
     .left {
       ${tw`w-1/3`}
@@ -46,14 +47,14 @@ const TopBar = ({ onMobileNavOpen, size = "normal", ...rest }: TopbarProps) => {
     }
   `
   const logoStyle = css`
-    ${tw`flex items-center space-x-2 text-4xl`}
+    ${tw`flex items-center space-x-2 text-4xl filter drop-shadow-lg`}
 
     .ui {
-      ${tw`px-1 border-2 rounded-lg font-bold`}
+      ${tw`px-1 border-4 rounded-lg font-bold filter drop-shadow-lg`}
     }
   `
   return (
-    <AppBar position="fixed" css={navbarStyle} elevation={1} {...rest}>
+    <AppBar position="fixed" css={navbarStyle} elevation={1} {...rest} className={clsx('app-container')}>
       <Toolbar css={toolBarStyle}>
         <div className="left">
           

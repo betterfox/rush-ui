@@ -45,5 +45,8 @@ body {
 
 #root {
     @apply min-h-screen;
-    padding-top: var(--navbar-topest-height);
+}
+
+.app-container {
+    @apply container mx-auto px-8;
 }
