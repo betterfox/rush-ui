@@ -3,12 +3,10 @@ import SigninForm from "./SigninForm";
 import SocialSigninButton from "./components/SocialSigninButton";
 import { useNavigate } from "react-router";
 import { RequestStatus } from "./interfaces/request.enum";
-import styles from "./SigninSplitScreen.module.scss";
+import styles from "./SigninSplitCard.module.scss";
 import SeparateLineWithText from "./components/SeparateLineWithText";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.scss";
-import { Button } from "@material-ui/core";
-import { FiArrowRight } from "react-icons/fi";
 
 interface SigninFormDto {
   email: string;
@@ -48,7 +46,6 @@ const SigninPage = () => {
 
   return (
     <PageContainer>
-      <ContentSection />
       <CardContainer>
         <AppLogo />
 
@@ -65,6 +62,7 @@ const SigninPage = () => {
 
         <SocialSignin />
       </CardContainer>
+      <ContentSection />
     </PageContainer>
   );
 };
@@ -145,22 +143,8 @@ const ContentSection = () => {
           style={{
             backgroundImage: "url(/assets/images/signin/highlight-bg1.png)",
           }}
-        ></div>
-
-        <div className={styles.heroContentContainer}>
-          <div className={styles.inner}>
-            <div className={styles.title}>Rush Accounting</div>
-            <div className={styles.subtitle}>
-              One-stop online <b>Accounting</b> service
-              <br />
-              For small businesses, entrepreneurs and freelancers.
-            </div>
-
-            <Button className={styles.button} variant="contained">
-              Create new account
-              <FiArrowRight className={styles.icon} />
-            </Button>
-          </div>
+        >
+            <div>Title</div>
         </div>
       </SwiperSlide>
       <SwiperSlide
