@@ -1,0 +1,16 @@
+.container {
+  @apply pt-12;
+
+  .section {
+    .section-heading {
+      @apply border-b mb-4 py-4 mt-4;
+
+      .title {
+        @apply text-2xl font-bold mb-1;
+      }
+      .subtitle {
+        @apply text-gray-500;
+      }
+    }
+  }
+}

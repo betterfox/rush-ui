@@ -5,7 +5,7 @@ import { Helmet } from "react-helmet";
 import { useNavigate } from "react-router";
 import { Alert } from "@material-ui/lab";
 import SeperateLineWithText from "./SeperateLineWithText";
-import styles from "./Signin.style.module.scss";
+import styles from "./Signin.module.scss";
 
 enum RequestStatus {
   Nop = 0,

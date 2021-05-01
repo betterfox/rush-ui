@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./styles/variables.scss";
 import "./styles/fonts.scss";
 import "./styles/tailwind.scss";
