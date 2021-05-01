@@ -3,14 +3,14 @@ import { Navigate } from 'react-router-dom';
 import LayoutManager from './layouts';
 import LandingPage from './landing-page';
 import EmptyLayout from './layouts/EmptyLayout';
-import SigninAkita from './examples/signin';
+import ExampleSigninPage from './examples/signin/Signin';
 
 const routes = [
   {
     path: '/examples',
     element: <EmptyLayout />,
     children: [
-      { path: '/signin/akita', element: <SigninAkita /> }
+      { path: '/signin', element: <ExampleSigninPage /> }
     ]
   },
   {
