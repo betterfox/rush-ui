@@ -1,11 +1,16 @@
 import React from 'react';
 import LandingPage from './LandingPage/LandingPage';
-import ExampleSigninPage from './examples/signin/Signin';
+import ExampleSigninCardPage from './examples/signin/SigninCard';
+import ExampleSigninSplitScreenPage from './examples/signin/SigninSplitScreen';
 
 const routes = [
   {
     path: '/examples/signin',
-    element: <ExampleSigninPage />
+    element: <ExampleSigninCardPage />
+  },
+  {
+    path: '/examples/signin/split-screen',
+    element: <ExampleSigninSplitScreenPage />
   },
   {
     path: '/', element: <LandingPage />

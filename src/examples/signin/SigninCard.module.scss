@@ -1,0 +1,77 @@
+.appLogo {
+  @apply mb-8;
+
+  .logoImg {
+    @apply mx-auto h-20 w-auto mb-2;
+  }
+
+  .title {
+    @apply text-center text-xl font-extrabold text-gray-700;
+  }
+}
+
+.page {
+  @apply h-full min-h-screen relative flex items-center justify-center p-0 bg-black;
+
+  .bgUpper {
+    @apply absolute top-0 left-0 w-full h-full z-20 bg-cover bg-center;
+    background-image: url(/assets/images/signin/bg.png);
+  }
+
+  .bgBelow {
+    @apply absolute top-0 left-0 w-full h-full z-10 bg-gray-50 bg-cover bg-center;
+    background-image: url(/assets/images/signin/bg1.svg);
+  }
+
+  .bgColorOverlay {
+    @apply absolute top-0 left-0 w-full h-full bg-blue-200 opacity-25 z-30;
+  }
+
+  .pageBody {
+    @apply max-w-full w-full space-y-8 relative z-40 flex items-center;
+  
+    @screen lg {
+      @apply max-w-md;
+    }
+  }
+}
+
+.card {
+  @apply shadow bg-white py-12 px-6 z-40 rounded w-full h-full flex flex-col items-center justify-center min-h-screen;
+
+  @screen lg {
+    @apply h-auto min-h-0;
+  }
+
+  .cardInner {
+    @apply w-full max-w-xs;
+  }
+}
+
+.pageTitle {
+  @apply text-center mb-4;
+
+  .title {
+    @apply text-gray-600;
+  }
+  .subtitle {
+    @apply font-bold text-gray-700;
+  }
+}
+
+.socialSigninContainer {
+  & > * {
+    @apply mb-2;
+  }
+  & > *:last-child {
+    @apply mb-0;
+  }
+}
+
+.form {
+  @apply mb-10
+}
+
+.errorAlert {
+  @apply mb-2;
+}
