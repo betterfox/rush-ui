@@ -4,16 +4,9 @@ import SocialSigninButton from "./SocialSigninButton";
 import { Helmet } from "react-helmet";
 import { useNavigate } from "react-router";
 import { Alert } from "@material-ui/lab";
-import SeperateLineWithText from "./SeperateLineWithText";
+import SeparateLineWithText from "./components/SeparateLineWithText";
 import styles from "./Signin.module.scss";
-
-enum RequestStatus {
-  Nop = 0,
-  Loading = 1,
-  Success = 2,
-  Error = 3,
-  NoConnection = 4,
-}
+import { RequestStatus } from "./interfaces/request.enum";
 
 interface SigninFormDto {
   email: string;
@@ -74,7 +67,7 @@ const SigninPage = () => {
             <SigninForm message="Sign up" onSubmit={onSubmit}></SigninForm>
           </div>
 
-          <SeperateLineWithText text="OR" />
+          <SeparateLineWithText text="OR" />
 
           <SocialSignin />
         </CardContainer>

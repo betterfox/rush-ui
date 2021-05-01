@@ -1,12 +1,9 @@
-/** @jsx jsx */
-import { css, jsx } from '@emotion/react'
 import React from "react";
-import * as Yup from "yup";
-import { withFormik, FormikProps, FormikErrors, Form, Field, FormikBag } from "formik";
-import FormInput from "./FormInput";
-import AppButtonLoading from "./AppLoadingButton";
-import { RequestStatus } from "@/enum/request.enum";
+import { withFormik, FormikProps, FormikErrors, Form, FormikBag } from "formik";
+import FormInput from "./components/FormInput";
+import AppButtonLoading from "./components/AppLoadingButton";
 import { FiKey, FiUser } from "react-icons/fi";
+import { RequestStatus } from "./interfaces/request.enum";
 
 interface FormValues {
   email: string;
@@ -32,14 +29,14 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
     <Form onSubmit={props.handleSubmit}>
         <div className="mb-6">
           <FormInput
-            label={`Email`}
+            label="Email"
             prependIcon={<FiUser />}
             name="email"
             placeholder="user@mail.com"
             formik={props}
           />
           <FormInput
-            label={`Password`}
+            label="Password"
             prependIcon={<FiKey />}
             name="password"
             type="password"
@@ -51,7 +48,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
         <div className="flex items-center justify-between mb-6">
         </div>
         <AppButtonLoading
-          text={`Sign In`}
+          text="Sign In"
           isLoading={status === RequestStatus.Loading}
           type="submit"
         />

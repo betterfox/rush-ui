@@ -3,8 +3,8 @@ import { css, jsx } from '@emotion/react'
 import tw from "twin.macro";
 import React from "react";
 import { Formik } from "formik";
-import FormInput from "./FormInput";
-import AppButtonLoading from "./AppLoadingButton";
+import FormInput from "./components/FormInput";
+import AppButtonLoading from "./components/AppLoadingButton";
 import SigninForm from "./SigninForm";
 import SocialSigninButton from "./SocialSigninButton";
 
@@ -20,7 +20,7 @@ const Signin = () => {
   return (
     <div className="h-full min-h-screen relative flex flex-col items-center justify-center p-0  bg-black">
       <div
-        className="absolute top-0 left-0 w-full h-full bg-black opacity-75 z-1 bg-black bg-cover bg-center"
+        className="absolute top-0 left-0 w-full h-full opacity-75 z-1 bg-black bg-cover bg-center"
         css={css`
           background-image: url(/assets/images/signin/bg.jpg);
           filter: blur(8px);

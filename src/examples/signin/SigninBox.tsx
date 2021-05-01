@@ -9,7 +9,7 @@ import HttpClient from '@/utils/http-client';
 import { useNavigate } from 'react-router';
 import { Alert } from '@material-ui/lab';
 import tw from 'twin.macro';
-import SeperateLineWithText from '@/components/common/SeperateLineWithText';
+import SeparateLineWithText from '@/components/common/SeparateLineWithText';
 
 interface SigninFormDto {
   email: string;
@@ -153,7 +153,7 @@ const Signin = () => {
                 <SigninForm message="Sign up" onSubmit={onSubmit}></SigninForm>
               </div>
 
-              <SeperateLineWithText text="OR" />
+              <SeparateLineWithText text="OR" />
 
               <div className="social-button-container">
                 <SocialSigninButton

@@ -1,0 +1,7 @@
+.button {
+  @apply rounded relative text-white bg-green-500 uppercase font-bold border-none py-3 flex items-center justify-center w-full h-12 shadow;
+  &:hover,
+  &:focus {
+    @apply bg-green-600 text-white shadow-lg;
+  }
+}

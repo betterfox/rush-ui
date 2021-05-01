@@ -4,7 +4,7 @@ import ExampleSigninPage from './examples/signin/Signin';
 
 const routes = [
   {
-    path: '/examples/sigin',
+    path: '/examples/signin',
     element: <ExampleSigninPage />
   },
   {
