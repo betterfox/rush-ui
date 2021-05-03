@@ -52,27 +52,38 @@ const SigninPage = () => {
       <PageContainer>
         <CardContainer>
           <AppLogo />
-
-          <div className={styles.pageTitle}>
-            <div className={styles.title}>Signin to:</div>
-            <div className={styles.subTitle}>Accounting</div>
-          </div>
-
-          <div className={styles.form}>
+          <PageTitle />
+          <AppFormContainer>
             {data.error && (
               <Alert severity="error" className={styles.errorAlert}>
                 {data.error}
               </Alert>
             )}
             <SigninForm message="Sign up" onSubmit={onSubmit}></SigninForm>
-          </div>
+          </AppFormContainer>
 
           <SeparateLineWithText text="OR" />
-
           <SocialSignin />
         </CardContainer>
       </PageContainer>
     </React.Fragment>
+  );
+};
+
+interface AppFormContainerProps {
+  children: ReactNode;
+}
+
+const AppFormContainer = ({ children }: AppFormContainerProps) => {
+  return <div className={styles.form}>{children}</div>;
+};
+
+const PageTitle = () => {
+  return (
+    <div className={styles.pageTitle}>
+      <div className={styles.title}>Signin to:</div>
+      <div className={styles.subTitle}>Accounting</div>
+    </div>
   );
 };
 

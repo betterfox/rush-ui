@@ -7,6 +7,8 @@ import styles from "./SigninSplitCard.module.scss";
 import SeparateLineWithText from "./components/SeparateLineWithText";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.scss";
+import { Button } from "@material-ui/core";
+import { FiArrowRight } from "react-icons/fi";
 
 interface SigninFormDto {
   email: string;
@@ -47,23 +49,38 @@ const SigninPage = () => {
   return (
     <PageContainer>
       <CardContainer>
-        <AppLogo />
+        <FormContainer>
+          <AppLogo />
+          <PageTitle />
+          
+          <AppFormContainer>
+            <SigninForm message="Sign up" onSubmit={onSubmit}></SigninForm>
+          </AppFormContainer>
 
-        <div className={styles.pageTitle}>
-          <div className={styles.title}>Signin to:</div>
-          <div className={styles.subTitle}>Accounting</div>
-        </div>
+          <SeparateLineWithText text="OR" />
 
-        <div className={styles.form}>
-          <SigninForm message="Sign up" onSubmit={onSubmit}></SigninForm>
-        </div>
-
-        <SeparateLineWithText text="OR" />
-
-        <SocialSignin />
+          <SocialSignin />
+        </FormContainer>
+        <ContentSection />
       </CardContainer>
-      <ContentSection />
     </PageContainer>
+  );
+};
+
+interface AppFormContainerProps {
+  children: ReactNode;
+}
+
+const AppFormContainer = ({ children }: AppFormContainerProps) => {
+  return <div className={styles.form}>{children}</div>;
+};
+
+const PageTitle = () => {
+  return (
+    <div className={styles.pageTitle}>
+      <div className={styles.title}>Signin to:</div>
+      <div className={styles.subTitle}>Accounting</div>
+    </div>
   );
 };
 
@@ -93,15 +110,22 @@ const PageContainer = ({ children }: PageContainerProps) => {
   );
 };
 
+interface FormContainerProps {
+  children: ReactNode;
+}
+const FormContainer = ({ children }: FormContainerProps) => {
+  return (
+    <div className={styles.formContainer}>
+      <div className={styles.formBody}>{children}</div>
+    </div>
+  );
+};
+
 interface CardContainerProps {
   children: ReactNode;
 }
 const CardContainer = ({ children }: CardContainerProps) => {
-  return (
-    <div className={styles.card}>
-      <div className={styles.cardInner}>{children}</div>
-    </div>
-  );
+  return <div className={styles.card}>{children}</div>;
 };
 
 const SocialSignin = () => {
@@ -143,8 +167,22 @@ const ContentSection = () => {
           style={{
             backgroundImage: "url(/assets/images/signin/highlight-bg1.png)",
           }}
-        >
-            <div>Title</div>
+        ></div>
+
+        <div className={styles.heroContentContainer}>
+          <div className={styles.inner}>
+            <div className={styles.title}>Rush Accounting</div>
+            <div className={styles.subtitle}>
+              One-stop online <b>Accounting</b> service
+              <br />
+              For small businesses, entrepreneurs and freelancers.
+            </div>
+
+            <Button className={styles.button} variant="contained">
+              Create new account
+              <FiArrowRight className={styles.icon} />
+            </Button>
+          </div>
         </div>
       </SwiperSlide>
       <SwiperSlide

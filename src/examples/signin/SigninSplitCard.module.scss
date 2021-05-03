@@ -27,18 +27,26 @@
   }
 
   .pageBody {
-    @apply h-full w-full container relative z-40 flex flex-grow py-20;
+    @apply h-full w-full container relative z-40 flex flex-grow py-0 px-0 max-w-7xl;
+
+    @screen md {
+      @apply py-20 px-6;
+    }
   }
 }
 
 .card {
-  @apply shadow bg-white py-12 px-6 z-40 rounded-l w-full h-full flex flex-col items-center justify-center min-h-screen;
+  @apply shadow bg-white w-full flex rounded overflow-hidden;
+}
 
-  @screen lg {
+.formContainer {
+  @apply py-20 px-6 z-40 w-full h-full flex flex-col items-center justify-center min-h-screen;
+
+  @screen md {
     @apply h-auto min-h-0 w-1/2;
   }
 
-  .cardInner {
+  .formBody {
     @apply w-full max-w-xs;
   }
 }
@@ -53,9 +61,9 @@
 }
 
 .contentContainer {
-  @apply w-1/2 hidden items-center justify-center flex-col rounded-r bg-white;
+  @apply w-1/2 hidden items-center justify-center flex-col;
 
-  @screen lg {
+  @screen md {
     @apply flex;
   }
 
@@ -71,22 +79,13 @@
     @apply h-full;
 
     .sliderItemBg {
-      @apply w-full h-full;
+      @apply w-full h-full absolute left-0 top-0;
 
       &:after {
         @apply absolute top-0 w-full h-full left-0 block z-0 opacity-75;
         content: "";
-        background: #1d976c; /* fallback for old browsers */
-        background: -webkit-linear-gradient(
-          to right,
-          #93f9b9,
-          #1d976c
-        ); /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(
-          to right,
-          #93f9b9,
-          #1d976c
-        ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        background: #1D976C;
+        background: linear-gradient(to bottom right, #93F9B9, #1D976C);
       }
     }
   }
@@ -121,4 +120,59 @@
 
 .errorAlert {
   @apply mb-2;
+}
+
+
+.heroContentContainer {
+  @apply w-full h-full flex items-center z-40 relative;
+
+  .inner {
+    @apply p-20 text-left;
+
+    @screen 2xl {
+      @apply p-32;
+    }
+    
+    .title {
+      @apply text-3xl font-bold text-white  filter drop-shadow mb-20;
+
+      @screen lg {
+        @apply text-4xl;
+      }
+      @screen 2xl {
+        @apply text-6xl;
+      }
+    }
+    .subtitle {
+      @apply text-xl text-white leading-relaxed filter drop-shadow mb-32 text-left;
+
+      @screen lg {
+        @apply text-2xl;
+      }
+      @screen 2xl {
+        @apply text-3xl;
+      }
+
+      b {
+        @apply bg-gray-900 px-2 rounded bg-opacity-50;
+      }
+    }
+    .button {
+      @apply rounded-full relative text-white bg-transparent uppercase font-bold border-2 border-white border-solid py-6 flex items-center justify-center w-auto pl-8 h-8 shadow-none text-base;
+      
+      @screen xl {
+        @apply pl-12 h-12 text-lg;
+      }
+    
+      .icon {
+        @apply ml-6 text-2xl;
+      }
+    
+      &:hover,
+      &:focus {
+        @apply bg-gray-100 text-gray-700 shadow-md;
+      }
+    }
+    
+  }
 }

@@ -1,0 +1,18 @@
+.heading {
+  @apply mb-4 py-4 mt-4;
+
+  .title {
+    @apply text-2xl font-bold mb-1;
+  }
+  .subtitle {
+    @apply text-gray-500;
+  }
+}
+
+.frameContainer {
+  @apply rounded-lg border border-gray-300 overflow-hidden bg-gray-200 p-2;
+
+  .inner {
+    @apply rounded-lg border border-gray-300 overflow-hidden bg-white;
+  }
+}
