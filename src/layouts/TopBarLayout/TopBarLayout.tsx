@@ -2,10 +2,14 @@ import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
 import TopBar from "./TopBar";
 
-const TopBarLayout = () => {
+interface TopBarLayoutProps {
+  hasHeroSection?: boolean
+}
+
+const TopBarLayout = (props: TopBarLayoutProps) => {
   return (
     <>
-      <TopBar/>
+      <TopBar {...props}/>
       <Outlet />
     </>
   );

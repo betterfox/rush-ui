@@ -9,6 +9,7 @@ import clsx from "clsx";
 interface TopBarProps {
   onMobileNavOpen?: () => void;
   size?: "normal" | "small";
+  hasHeroSection?: boolean;
 }
 
 const TopBar = ({ onMobileNavOpen, size = "normal", ...rest }: TopBarProps) => {

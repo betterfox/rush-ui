@@ -3,7 +3,6 @@
   background: #141e30;
   background: -webkit-linear-gradient(to right, #243b55, #141e30);
   background: linear-gradient(to right, #243b55, #141e30);
-
   &:after {
     @apply absolute top-0 w-full h-full left-0 block z-0;
     content: "";
@@ -14,12 +13,11 @@
       rgba(252, 176, 69, 0) 100%
     );
   }
-
   .appContainer {
     @apply relative z-10;
   }
   .heroHeading {
-    @apply py-20;
+    @apply py-20 relative z-10;
     padding-top: calc(var(--navbar-topmost-height) + 10rem);
 
     .title {
@@ -30,15 +28,12 @@
     }
   }
 }
-
 .preview {
   @apply absolute top-1/2 left-1/2 grid grid-cols-2 gap-4 transform;
   width: 800px;
-
   img {
     @apply h-auto rounded-lg filter drop-shadow-lg;
   }
-
   .item1 {
     @apply ml-auto transform -translate-y-0 w-60;
   }

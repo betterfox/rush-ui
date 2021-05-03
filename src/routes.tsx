@@ -3,14 +3,15 @@ import LandingPage from './LandingPage/LandingPage';
 import ExampleSigninCardPage from './examples/signin/SigninCard';
 import ExampleSigninSplitScreenPage from './examples/signin/SigninSplitScreen';
 import ExampleSigninSplitCardPage from './examples/signin/SigninSplitCard';
+import ShowCaseSignin from './pages/Form/Signin';
 import EmptyLayout from './layouts/EmptyLayout';
-import LayoutManager from './layouts';
 import { Navigate } from 'react-router';
+import TopBarLayout from './layouts/TopBarLayout/TopBarLayout';
 
 const routes = [
   { 
-    path: '/examples',
-    element: EmptyLayout,
+    path: 'examples',
+    element: <EmptyLayout />,
     children: [
       {
         path: '/signin',
@@ -27,8 +28,15 @@ const routes = [
     ]
   },
   {
+    path: 'show-case',
+    element: <TopBarLayout />,
+    children: [
+      { path: '/signin', element: <ShowCaseSignin /> }
+    ]
+  },
+  {
     path: '',
-    element: <LayoutManager />,
+    element: <TopBarLayout hasHeroSection={true} />,
     children: [
       { path: '/', element: <LandingPage /> },
       { path: '*', element: <Navigate to="/" /> },
