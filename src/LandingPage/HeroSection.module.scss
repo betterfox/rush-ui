@@ -20,7 +20,7 @@
   }
   .heroHeading {
     @apply py-20;
-    padding-top: calc(var(--navbar-topest-height) + 10rem);
+    padding-top: calc(var(--navbar-topmost-height) + 10rem);
 
     .title {
       @apply text-5xl font-bold text-white mb-2 filter drop-shadow-lg;

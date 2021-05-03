@@ -3,7 +3,7 @@ import { withFormik, FormikProps, FormikErrors, Form, FormikBag } from "formik";
 import FormInput from "./components/FormInput";
 import AppButtonLoading from "./components/AppLoadingButton";
 import { FiKey, FiUser } from "react-icons/fi";
-import { RequestStatus } from "./interfaces/request.enum";
+import { RequestStatus } from "./enum/request.enum";
 
 interface FormValues {
   email: string;

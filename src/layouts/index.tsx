@@ -1,12 +1,12 @@
 import React from 'react';
-import TopbarLayout from './TopbarLayout';
+import TopBarLayout from './TopBarLayout/TopBarLayout';
 
 interface LayoutManagerProps {
 }
 
 const LayoutManager = ({
 }: LayoutManagerProps) => {
-    return <TopbarLayout></TopbarLayout>
+    return <TopBarLayout></TopBarLayout>
 }
 
 export default LayoutManager

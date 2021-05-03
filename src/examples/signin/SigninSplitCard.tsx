@@ -2,7 +2,7 @@ import React, { ReactNode, useState } from "react";
 import SigninForm from "./SigninForm";
 import SocialSigninButton from "./components/SocialSigninButton";
 import { useNavigate } from "react-router";
-import { RequestStatus } from "./interfaces/request.enum";
+import { RequestStatus } from "./enum/request.enum";
 import styles from "./SigninSplitCard.module.scss";
 import SeparateLineWithText from "./components/SeparateLineWithText";
 import { Swiper, SwiperSlide } from "swiper/react";

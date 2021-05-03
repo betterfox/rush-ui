@@ -6,7 +6,7 @@ import { useNavigate } from "react-router";
 import { Alert } from "@material-ui/lab";
 import SeparateLineWithText from "./components/SeparateLineWithText";
 import styles from "./SigninCard.module.scss";
-import { RequestStatus } from "./interfaces/request.enum";
+import { RequestStatus } from "./enum/request.enum";
 
 interface SigninFormDto {
   email: string;
