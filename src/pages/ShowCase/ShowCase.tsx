@@ -1,6 +1,8 @@
 import clsx from "clsx";
-import React, { ReactNode } from "react";
+import React, { ReactNode, useState } from "react";
+import { ButtonGroup, Button } from '@material-ui/core';
 import styles from "./ShowCase.module.scss";
+import { FiTablet, FiSmartphone, FiMonitor } from 'react-icons/fi';
 
 interface ShowCaseContainerProps {
   children: ReactNode;
@@ -38,10 +40,43 @@ interface ShowCaseFrameProps {
   children: ReactNode;
 }
 
+enum DisplayMode {
+  Mobile = 'mobile',
+  Tablet = 'tablet',
+  Desktop = 'desktop',
+}
+
 export const ShowCaseFrame = ({ children }: ShowCaseFrameProps) => {
+  const [displayMode, setDisplayMode] = useState(DisplayMode.Desktop as DisplayMode)
   return (
     <div className={styles.frameContainer}>
-      <div className={styles.inner}>{children}</div>
+      <div className={styles.header}>
+        <ButtonGroup className={styles.displayModeButtonContainer}>
+          <Button onClick={() => {
+            setDisplayMode(DisplayMode.Mobile)
+          }} className={clsx(styles.button, { [styles.isActive]:  displayMode === DisplayMode.Mobile } )}>
+            <FiSmartphone className={styles.icon} />
+            <div className={styles.title}>Mobile</div>
+          </Button>
+          <Button onClick={() => {
+            setDisplayMode(DisplayMode.Tablet)
+          }}  className={clsx(styles.button, { [styles.isActive]:  displayMode === DisplayMode.Tablet } )}>
+            <FiTablet className={styles.icon} />
+            <div className={styles.title}>Tablet</div>
+          </Button>
+          <Button onClick={() => {
+            setDisplayMode(DisplayMode.Desktop)
+          }}  className={clsx(styles.button, { [styles.isActive]:  displayMode === DisplayMode.Desktop } )}>
+            <FiMonitor className={styles.icon} />
+            <div className={styles.title}>Desktop</div>
+          </Button>
+        </ButtonGroup>
+      </div>
+      <div className={clsx(styles.inner, {
+        [styles.isMobile]:  displayMode === DisplayMode.Mobile,
+        [styles.isTablet]:  displayMode === DisplayMode.Tablet,
+        [styles.isDesktop]:  displayMode === DisplayMode.Desktop,
+      })}>{children}</div>
     </div>
   );
 };

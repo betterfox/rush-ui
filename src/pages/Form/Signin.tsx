@@ -6,7 +6,7 @@ import { ShowCaseFrame } from "../ShowCase/ShowCase";
 const SigninPage = () => {
   return (
     <ShowCaseContainer>
-      <ShowCaseSection title="Signin Page">
+      <ShowCaseSection title="Card Style" subtitle="With illustration background for any common login page / register page">
         <ShowCaseFrame>
           <IframeResizer
             src="http://localhost:3000/examples/signin"
@@ -15,7 +15,7 @@ const SigninPage = () => {
         </ShowCaseFrame>
       </ShowCaseSection>
 
-      <ShowCaseSection title="Signin Page Split Screen">
+      <ShowCaseSection title="Split Screen" subtitle="Show content in one side with carousel style, your can swap a side you want">
         <ShowCaseFrame>
           <IframeResizer
             src="http://localhost:3000/examples/signin/split-screen"
@@ -24,7 +24,7 @@ const SigninPage = () => {
         </ShowCaseFrame>
       </ShowCaseSection>
 
-      <ShowCaseSection title="Signin Page Split Card">
+      <ShowCaseSection title="Split Card" subtitle="Same as split screen plus card style">
         <ShowCaseFrame>
           <IframeResizer
             src="http://localhost:3000/examples/signin/split-card"
