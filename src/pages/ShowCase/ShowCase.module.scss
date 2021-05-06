@@ -25,7 +25,14 @@
   }
 
   .header {
+    @apply flex;
 
+    .leftSection {
+      @apply flex-grow;
+    }
+    .rightSection {
+      @apply flex-grow;
+    }
   }
 }
 

@@ -1,16 +1,24 @@
 :root {
     --input-height: 44px;
     --input-small-height: 36px;
-    
+
     --navbar-topmost-height: 120px;
     --navbar-height: 60px;
 
     --sidebar-width: 250px;
     --sidebar-mini-width: 60px;
-    
+
     --primary: #0096c7;
     --primary-dark: #212529;
 
     --black: #03071e;
-    --white: #FFFFFF;
+    --white: #ffffff;
 }
+
+// [data-theme="dark"] {
+//     --primary: #0096c7;
+//     --primary-dark: #fff;
+
+//     --black: #ffffff;
+//     --white: #03071e;
+// }

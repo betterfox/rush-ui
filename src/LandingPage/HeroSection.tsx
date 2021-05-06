@@ -8,7 +8,7 @@ export default function HeroSection() {
     <div className={styles.heroSection}>
       <div className="app-container">
         <div className={styles.heroHeading}>
-          <div className={styles.title}>Ready to use UI Components</div>
+          <div className={styles.title}>Production Ready UI Boilerplate</div>
           <div className={styles.subtitle}>Crafted with TailwindCSS</div>
         </div>
         <div className={styles.preview}>
