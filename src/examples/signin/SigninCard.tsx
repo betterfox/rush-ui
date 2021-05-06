@@ -45,7 +45,7 @@ const SigninPage = () => {
   };
 
   return (
-    <React.Fragment>
+    <>
       <Helmet>
         <title>SignIn Page</title>
       </Helmet>
@@ -66,7 +66,7 @@ const SigninPage = () => {
           <SocialSignin />
         </CardContainer>
       </PageContainer>
-    </React.Fragment>
+    </>
   );
 };
 

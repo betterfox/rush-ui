@@ -5,9 +5,9 @@ import { Outlet } from "react-router-dom";
 
 const EmptyLayout = () => {
   return (
-    <React.Fragment>
+    <>
       <Outlet />
-    </React.Fragment>
+    </>
   );
 };
 

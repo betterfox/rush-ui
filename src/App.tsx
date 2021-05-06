@@ -10,9 +10,9 @@ function App() {
   const routing = useRoutes(routes);
 
   return (
-    <React.Fragment>
+    <>
       {routing}
-    </React.Fragment>
+    </>
   );
 }
 

@@ -25,26 +25,24 @@
   }
 
   .header {
-    @apply flex;
+    @apply flex mb-2;
 
     .leftSection {
       @apply flex-grow;
     }
     .rightSection {
-      @apply flex-grow;
+      @apply flex-grow flex justify-end;
     }
   }
 }
 
 
 .displayModeButtonContainer {
-  @apply mb-2;
-  
   .button {
     @apply flex items-center;
 
     .icon {
-      @apply text-lg mr-1;
+      @apply text-2xl mr-1;
     }
     .title {
 
@@ -53,5 +51,39 @@
     &.isActive {
       @apply bg-green-500 text-white;
     }
+  }
+}
+
+.codeButtonContainer {
+  .button {
+    @apply flex items-center;
+
+    .icon {
+      @apply text-2xl mr-1;
+    }
+    .title {
+
+    }
+
+    &.isActive {
+      @apply bg-green-500 text-white;
+    }
+  }
+}
+
+.codeContainer {
+  @apply flex mb-2;
+
+  .code, .style {
+    @apply overflow-auto bg-gray-900 rounded;
+    height: 500px;
+  }
+
+  .code {
+    @apply w-1/2 mr-1;
+  }
+
+  .style {
+    @apply w-1/2 ml-1;
   }
 }

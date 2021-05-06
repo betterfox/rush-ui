@@ -3,6 +3,8 @@ import React, { ReactNode, useState } from "react";
 import { ButtonGroup, Button } from '@material-ui/core';
 import styles from "./ShowCase.module.scss";
 import { FiTablet, FiSmartphone, FiMonitor } from 'react-icons/fi';
+import { FaReact } from 'react-icons/fa'
+import { CodeBlock, atomOneDark } from "react-code-blocks";
 
 interface ShowCaseContainerProps {
   children: ReactNode;
@@ -38,6 +40,8 @@ export const ShowCaseSection = ({
 
 interface ShowCaseFrameProps {
   children: ReactNode;
+  reactCssModuleCode?: string;
+  reactCssModuleStyle?: string;
 }
 
 enum DisplayMode {
@@ -46,8 +50,21 @@ enum DisplayMode {
   Desktop = 'desktop',
 }
 
-export const ShowCaseFrame = ({ children }: ShowCaseFrameProps) => {
+enum CodeGroup {
+  ReactCssModule = 'react-css-modules'
+}
+
+export const ShowCaseFrame = ({ children, reactCssModuleCode, reactCssModuleStyle }: ShowCaseFrameProps) => {
   const [displayMode, setDisplayMode] = useState(DisplayMode.Desktop as DisplayMode)
+  const [codeGroup, setCodeGroup] = useState(null as CodeGroup | null)
+
+  const toggleCodeGroup = (target: CodeGroup) => {
+    if (codeGroup === target) {
+      setCodeGroup(null)
+      return false;
+    }
+    setCodeGroup(target)
+  }
   return (
     <div className={styles.frameContainer}>
       <div className={styles.header}>
@@ -74,8 +91,38 @@ export const ShowCaseFrame = ({ children }: ShowCaseFrameProps) => {
           </ButtonGroup>
         </div>
         <div className={styles.rightSection}>
+          <ButtonGroup className={styles.codeButtonContainer}>
+            <Button onClick={() => {
+              toggleCodeGroup(CodeGroup.ReactCssModule)
+            }} className={clsx(styles.button, { [styles.isActive]: codeGroup === CodeGroup.ReactCssModule })}>
+              <FaReact className={styles.icon} />
+              <div className={styles.title}> + CSS Modules</div>
+            </Button>
+          </ButtonGroup>
         </div>
       </div>
+      {
+        codeGroup === CodeGroup.ReactCssModule && <div className={clsx(styles.codeContainer)}>
+          <div className={styles.code}>
+            <CodeBlock
+              className={styles.codeBlock}
+              text={reactCssModuleCode}
+              language={`tsx`}
+              showLineNumbers={false}
+              theme={atomOneDark}
+            />
+          </div>
+          <div className={styles.style}>
+            <CodeBlock
+              className={styles.codeBlock}
+              text={reactCssModuleStyle}
+              language={`sass`}
+              showLineNumbers={false}
+              theme={atomOneDark}
+            />
+          </div>
+        </div>
+      }
       <div className={clsx(styles.inner, {
         [styles.isMobile]: displayMode === DisplayMode.Mobile,
         [styles.isTablet]: displayMode === DisplayMode.Tablet,
