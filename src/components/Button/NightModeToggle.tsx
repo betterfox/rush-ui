@@ -11,7 +11,7 @@ export default function NightModeToggle() {
 
     return (
         <Button 
-            className={clsx(styles.button, { 'is-dark-mode': isDarkMode })}
+            className={clsx(styles.button, { [styles.isDarkMode]: isDarkMode })}
             onClick={() => {
                 setIsDarkMode(!isDarkMode)
             }}>

@@ -2,7 +2,6 @@ import React, { ReactNode, useState } from "react";
 import SigninForm from "./SigninForm";
 import SocialSigninButton from "./components/SocialSigninButton";
 import { Helmet } from "react-helmet";
-import { useNavigate } from "react-router";
 import { Alert } from "@material-ui/lab";
 import SeparateLineWithText from "./components/SeparateLineWithText";
 import styles from "./SigninCard.module.scss";
@@ -14,7 +13,6 @@ interface SigninFormDto {
 }
 
 const SigninPage = () => {
-  const navigate = useNavigate();
   const [data, setData] = useState({
     response: null,
     error: null,

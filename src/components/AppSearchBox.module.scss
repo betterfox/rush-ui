@@ -1,0 +1,81 @@
+.button {
+    @apply bg-primary border-b-0 font-light text-gray-700 w-full text-left shadow-none p-2;
+    max-width: 30vw;
+    &:hover {
+        @apply cursor-pointer bg-primary;
+    }
+}
+
+.popper {
+    @apply bg-white border-b-0 rounded shadow-lg font-light text-gray-700 w-full z-10;
+    z-index: 10000;
+    margin-top: calc((var(--navbar-height) - 4px) * -1) !important;
+    max-width: 30vw;
+
+    .MuiAutocomplete-root {
+        @apply relative;
+    }
+
+    .MuiAutocomplete-popper {
+        @apply w-full left-0 rounded-none shadow-none relative;
+    }
+
+    .MuiAutocomplete-paper {
+        @apply rounded-none shadow-none my-0;
+    }
+
+    .MuiAutocomplete-listbox {
+        @apply p-0;
+    }
+
+    .MuiAutocomplete-option {
+        @apply p-0;
+    }
+}
+
+.input {
+    @apply border-b w-full;
+    input {
+        @apply bg-transparent border-b-0 font-light text-gray-700 w-full px-4 py-1;
+        height: var(--input-height);
+    }
+}
+
+.listItem {
+    @apply p-3 flex items-center justify-start w-full border-b;
+
+    .title {
+        @apply text-gray-700 truncate;
+    }
+
+    .subtitle {
+        @apply text-xs text-gray-500 truncate;
+    }
+
+    .icon {
+        @apply w-10 h-10 bg-gray-200 border border-gray-200 text-xl flex items-center justify-center mr-3 rounded text-gray-400 shadow;
+
+        &.is-icon {
+            @apply text-2xl;
+        }
+    }
+
+    &:hover {
+        @apply cursor-pointer bg-gray-50;
+    }
+}
+
+.preSelectItem {
+    @apply p-3 flex items-center justify-start w-full border border-solid shadow rounded bg-white h-full;
+
+    .title {
+        @apply text-gray-500 truncate opacity-50 flex-grow;
+    }
+    .icon {
+        @apply w-10 h-10 bg-gray-200 border border-gray-200 text-xl flex items-center justify-center mr-3 rounded text-gray-400 opacity-50;
+    }
+
+    .arrow {
+        @apply text-white truncate opacity-50;
+    }
+}

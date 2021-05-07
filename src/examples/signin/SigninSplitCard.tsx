@@ -1,7 +1,6 @@
 import React, { ReactNode, useState } from "react";
 import SigninForm from "./SigninForm";
 import SocialSigninButton from "./components/SocialSigninButton";
-import { useNavigate } from "react-router";
 import { RequestStatus } from "./enum/request.enum";
 import styles from "./SigninSplitCard.module.scss";
 import SeparateLineWithText from "./components/SeparateLineWithText";
@@ -16,7 +15,6 @@ interface SigninFormDto {
 }
 
 const SigninPage = () => {
-  const navigate = useNavigate();
   const [data, setData] = useState({
     response: null,
     error: null,
