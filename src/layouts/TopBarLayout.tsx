@@ -1,18 +1,28 @@
-import React, { useState } from "react";
+import React, { ReactNode, useState } from "react";
 import { Outlet } from "react-router-dom";
 import TopBar from "@/components/Navbar";
+import clsx from "clsx";
+import styles from './TopBarLayout.module.scss';
 
-interface TopBarLayoutProps {
-  hasHeroSection?: boolean
-}
-
-const TopBarLayout = (props: TopBarLayoutProps) => {
+const TopBarLayout = () => {
   return (
-    <>
-      <TopBar {...props}/>
+    <AppContainer>
+      <TopBar />
       <Outlet />
-    </>
+    </AppContainer>
   );
 };
+
+interface AppContainerProps {
+  children: ReactNode
+}
+
+const AppContainer = ({ children }: AppContainerProps) => {
+  return (
+    <div className={clsx(styles.container)}>
+      {children}
+    </div>
+  )
+}
 
 export default TopBarLayout;

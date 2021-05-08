@@ -1,7 +1,7 @@
 .navbar {
     height: var(--navbar-height);
     z-index: 1200;
-    @apply left-0 w-full flex bg-white shadow-lg;
+    @apply left-0 w-full flex bg-background-600 shadow-lg;
     @apply transition-all duration-200;
 
     .toolbar {
@@ -10,11 +10,11 @@
     }
 
     .logo {
-        @apply flex items-center space-x-2 text-2xl filter drop-shadow-lg;
+        @apply flex items-center space-x-2 text-2xl text-on-background filter drop-shadow-lg;
         @apply transition-all duration-300;
 
         .postfix {
-            @apply px-1 border-2 rounded-lg font-bold filter drop-shadow-lg;
+            @apply px-1 border-4 rounded-lg font-bold border-on-background filter drop-shadow-lg;
         }
     }
 
@@ -31,6 +31,16 @@
             
             .postfix {
                 @apply border-4;
+            }
+        }
+
+        &.isHeroSection {
+            .logo {
+                @apply text-white;
+        
+                .postfix {
+                    @apply border-white;
+                }
             }
         }
     }

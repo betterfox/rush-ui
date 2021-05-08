@@ -13,13 +13,14 @@ interface TopBarProps {
     hasHeroSection?: boolean;
 }
 
-const Navbar = ({ onMobileNavOpen, size = "normal", ...rest }: TopBarProps) => {
+const Navbar = ({ onMobileNavOpen, size = "normal", hasHeroSection, ...rest }: TopBarProps) => {
     const scrollY = useScrollPosition(60)
     return (
         <AppBar
             position="fixed"
             className={clsx(styles.navbar, {
-                [styles.isTop]: scrollY == 0
+                [styles.isTop]: scrollY == 0,
+                [styles.isHeroSection]: hasHeroSection
             })}
             elevation={1}
             {...rest}

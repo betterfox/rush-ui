@@ -40,8 +40,18 @@ html,
 body {
     font-size: 14px;
     font-family: "Rubik Regular", "Prompt Regular" !important;
-    @apply min-h-screen;
+    @apply min-h-screen p-0 m-0;
     @apply bg-background text-on-background;
+}
+
+html {
+    
+    // border: 1px solid #FF0000;
+}
+
+body {
+    
+    // border: 1px solid #FF0000;
 }
 
 #root {

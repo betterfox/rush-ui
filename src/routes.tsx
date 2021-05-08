@@ -7,6 +7,7 @@ import ShowCaseSignin from './pages/Form/Signin';
 import EmptyLayout from './layouts/EmptyLayout';
 import { Navigate } from 'react-router';
 import TopBarLayout from './layouts/TopBarLayout';
+import LandingLayout from './layouts/LandingLayout';
 
 const routes = [
   { 
@@ -36,7 +37,7 @@ const routes = [
   },
   {
     path: '',
-    element: <TopBarLayout hasHeroSection={true} />,
+    element: <LandingLayout />,
     children: [
       { path: '/', element: <LandingPage /> },
       { path: '*', element: <Navigate to="/" /> },
