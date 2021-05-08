@@ -3,7 +3,7 @@ import React, { ReactNode, useState } from "react";
 import { ButtonGroup, Button } from '@material-ui/core';
 import styles from "./ShowCase.module.scss";
 import { FiTablet, FiSmartphone, FiMonitor } from 'react-icons/fi';
-import { FaReact } from 'react-icons/fa'
+import { FaReact, FaVuejs, FaAngular } from 'react-icons/fa'
 import { CodeBlock, atomOneDark } from "react-code-blocks";
 
 interface ShowCaseContainerProps {
@@ -51,7 +51,10 @@ enum DisplayMode {
 }
 
 enum CodeGroup {
-  ReactCssModule = 'react-css-modules'
+  ReactCssModule = 'react-css-modules',
+  ReactStyledComponent = 'react-styled-component',
+  Vue = 'vue',
+  Angular = 'angular'
 }
 
 export const ShowCaseFrame = ({ children, reactCssModuleCode, reactCssModuleStyle }: ShowCaseFrameProps) => {
@@ -98,11 +101,95 @@ export const ShowCaseFrame = ({ children, reactCssModuleCode, reactCssModuleStyl
               <FaReact className={styles.icon} />
               <div className={styles.title}> + CSS Modules</div>
             </Button>
+            <Button onClick={() => {
+              toggleCodeGroup(CodeGroup.ReactStyledComponent)
+            }} className={clsx(styles.button, { [styles.isActive]: codeGroup === CodeGroup.ReactStyledComponent })}>
+              <FaReact className={styles.icon} />
+              <div className={styles.title}> + Styled Component</div>
+            </Button>
+            <Button onClick={() => {
+              toggleCodeGroup(CodeGroup.Vue)
+            }} className={clsx(styles.button, { [styles.isActive]: codeGroup === CodeGroup.Vue })}>
+              <FaVuejs className={styles.icon} />
+              <div className={styles.title}> Vue</div>
+            </Button>
+            <Button onClick={() => {
+              toggleCodeGroup(CodeGroup.Angular)
+            }} className={clsx(styles.button, { [styles.isActive]: codeGroup === CodeGroup.Angular })}>
+              <FaAngular className={styles.icon} />
+              <div className={styles.title}> Angular</div>
+            </Button>
           </ButtonGroup>
         </div>
       </div>
       {
         codeGroup === CodeGroup.ReactCssModule && <div className={clsx(styles.codeContainer)}>
+          <div className={styles.code}>
+            <CodeBlock
+              className={styles.codeBlock}
+              text={reactCssModuleCode}
+              language={`tsx`}
+              showLineNumbers={false}
+              theme={atomOneDark}
+            />
+          </div>
+          <div className={styles.style}>
+            <CodeBlock
+              className={styles.codeBlock}
+              text={reactCssModuleStyle}
+              language={`sass`}
+              showLineNumbers={false}
+              theme={atomOneDark}
+            />
+          </div>
+        </div>
+      }
+      {
+        codeGroup === CodeGroup.ReactStyledComponent && <div className={clsx(styles.codeContainer)}>
+          <div className={styles.code}>
+            <CodeBlock
+              className={styles.codeBlock}
+              text={reactCssModuleCode}
+              language={`tsx`}
+              showLineNumbers={false}
+              theme={atomOneDark}
+            />
+          </div>
+          <div className={styles.style}>
+            <CodeBlock
+              className={styles.codeBlock}
+              text={reactCssModuleStyle}
+              language={`sass`}
+              showLineNumbers={false}
+              theme={atomOneDark}
+            />
+          </div>
+        </div>
+      }
+      {
+        codeGroup === CodeGroup.Vue && <div className={clsx(styles.codeContainer)}>
+          <div className={styles.code}>
+            <CodeBlock
+              className={styles.codeBlock}
+              text={reactCssModuleCode}
+              language={`tsx`}
+              showLineNumbers={false}
+              theme={atomOneDark}
+            />
+          </div>
+          <div className={styles.style}>
+            <CodeBlock
+              className={styles.codeBlock}
+              text={reactCssModuleStyle}
+              language={`sass`}
+              showLineNumbers={false}
+              theme={atomOneDark}
+            />
+          </div>
+        </div>
+      }
+      {
+        codeGroup === CodeGroup.Angular && <div className={clsx(styles.codeContainer)}>
           <div className={styles.code}>
             <CodeBlock
               className={styles.codeBlock}

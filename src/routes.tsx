@@ -6,7 +6,7 @@ import ExampleSigninSplitCardPage from './examples/signin/SigninSplitCard';
 import ShowCaseSignin from './pages/Form/Signin';
 import EmptyLayout from './layouts/EmptyLayout';
 import { Navigate } from 'react-router';
-import TopBarLayout from './layouts/TopBarLayout/TopBarLayout';
+import TopBarLayout from './layouts/TopBarLayout';
 
 const routes = [
   { 

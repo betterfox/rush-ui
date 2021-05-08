@@ -1,0 +1,51 @@
+.navbar {
+    height: var(--navbar-height);
+    z-index: 1200;
+    @apply left-0 w-full flex bg-white shadow-lg;
+    @apply transition-all duration-200;
+
+    .toolbar {
+        height: var(--navbar-height);
+        @apply px-0 pt-0;
+    }
+
+    .logo {
+        @apply flex items-center space-x-2 text-2xl filter drop-shadow-lg;
+        @apply transition-all duration-300;
+
+        .postfix {
+            @apply px-1 border-2 rounded-lg font-bold filter drop-shadow-lg;
+        }
+    }
+
+    &.isTop {
+        height: var(--navbar-topmost-height);
+        @apply bg-transparent shadow-none;
+
+        .toolbar {
+            height: var(--navbar-topmost-height);
+        }
+
+        .logo {
+            @apply text-4xl;
+            
+            .postfix {
+                @apply border-4;
+            }
+        }
+    }
+}
+
+.leftSection {
+    @apply w-1/3;
+}
+.rightSection {
+    @apply w-1/3 flex items-center justify-end;
+}
+.centerSection {
+    @apply w-1/3 flex items-center justify-center;
+}
+
+.appContainer {
+    @apply container mx-auto px-8;
+}

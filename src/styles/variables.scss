@@ -8,17 +8,22 @@
     --sidebar-width: 250px;
     --sidebar-mini-width: 60px;
 
+    --primary-400: #212529;
     --primary: #0096c7;
-    --primary-dark: #212529;
+    --primary-600: #212529;
+    
+    --background: #F3F4F6;
+    --on-background: #374151;
+    --on-background-300: #6B7280;
+    --on-background-100: #E5E7EB;
 
     --black: #03071e;
     --white: #ffffff;
 }
 
-// [data-theme="dark"] {
-//     --primary: #0096c7;
-//     --primary-dark: #fff;
-
-//     --black: #ffffff;
-//     --white: #03071e;
-// }
+[data-theme="dark"] {
+    --background: #111827;
+    --on-background: #FFF;
+    --on-background-300: #9CA3AF;
+    --on-background-100: #0c111d;
+}

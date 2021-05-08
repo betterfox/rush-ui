@@ -2,6 +2,7 @@
     box-sizing: border-box;
     outline: none !important;
     font-family: "Rubik Regular", "Prompt Regular" !important;
+    @apply transition duration-200;
 
     &:focus {
         outline: none;
@@ -40,7 +41,7 @@ body {
     font-size: 14px;
     font-family: "Rubik Regular", "Prompt Regular" !important;
     @apply min-h-screen;
-    @apply bg-gray-100;
+    @apply bg-background text-on-background;
 }
 
 #root {

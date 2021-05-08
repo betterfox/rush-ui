@@ -3,18 +3,17 @@
 
   .section {
     .heading {
-      @apply border-b mb-4 py-4 mt-4;
+      @apply border-b border-on-background-100 mb-4 py-4 mt-4;
 
       .title {
-        @apply text-2xl font-bold mb-1;
+        @apply text-2xl font-bold mb-1 text-on-background;
       }
       .subtitle {
-        @apply text-gray-500;
+        @apply text-on-background-300;
       }
     }
   }
 }
 
 .blog {
-  
 }
