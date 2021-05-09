@@ -52,39 +52,8 @@
   }
 }
 
-.contentContainer {
-  @apply w-1/2 hidden items-center justify-center flex-col;
-
-  @screen md {
-    @apply flex;
-  }
-
-  .logoImg {
-    @apply mx-auto h-40 w-auto mb-8 filter drop-shadow-lg;
-  }
-
-  .subtitle {
-    @apply text-center text-2xl text-gray-700 filter drop-shadow-lg;
-  }
-
-  .sliderItem {
-    @apply h-full;
-
-    .sliderItemBg {
-      @apply w-full h-full absolute left-0 top-0;
-
-      &:after {
-        @apply absolute top-0 w-full h-full left-0 block z-0 opacity-75;
-        content: "";
-        background: #1D976C;
-        background: linear-gradient(to bottom right, #93F9B9, #1D976C);
-      }
-    }
-  }
-}
-
 .appLogo {
-  @apply mb-8;
+  @apply mb-8 bg-surface;
 
   .logoImg {
     @apply mx-auto h-20 w-auto mb-2 opacity-75;
@@ -115,42 +84,101 @@
   @apply mb-2;
 }
 
+.contentContainer {
+  @apply w-1/2 hidden items-center justify-center flex-col;
+  --swiper-pagination-color: var(--background);
+  --swiper-navigation-color: var(--background);
+
+  @screen md {
+    @apply flex;
+  }
+
+  .logoImg {
+    @apply mx-auto h-40 w-auto mb-8 filter drop-shadow-lg;
+  }
+
+  .subtitle {
+    @apply text-center text-2xl text-gray-700 filter drop-shadow-lg;
+  }
+
+  .sliderItem {
+    @apply h-full;
+
+    .sliderItemBg {
+      @apply w-full h-full absolute left-0 top-0 bg-cover backdrop-filter  backdrop-blur;
+
+      &:before {
+        @apply absolute top-0 w-full h-full left-0 block z-0 opacity-50 bg-black;
+        content: "";
+      }
+      &:after {
+        @apply absolute top-0 w-full h-full left-0 block z-0 opacity-50 bg-primary;
+        content: "";
+      }
+    }
+  }
+
+  :global {
+    .swiper-pagination-bullet-active {
+      width: 16px !important;
+      border-radius: 4px !important;
+    }
+
+    .swiper-button-prev, .swiper-button-next {
+      @apply transform scale-50;
+    }
+  }
+}
+
 .heroContentContainer {
   @apply w-full h-full flex items-center z-40 relative;
 
   .inner {
-    @apply p-20 text-left;
+    @apply p-8 px-16 text-center mx-auto;
 
     @screen 2xl {
-      @apply p-32;
+      @apply p-12 px-20;
     }
     
     .title {
-      @apply text-3xl font-bold text-white  filter drop-shadow mb-20;
+      @apply text-2xl font-bold text-white  filter drop-shadow mb-2;
 
       @screen lg {
         @apply text-4xl;
       }
       @screen 2xl {
-        @apply text-6xl;
+        @apply text-5xl;
       }
     }
     .subtitle {
-      @apply text-xl text-white leading-relaxed filter drop-shadow mb-32 text-left;
+      @apply text-lg text-white leading-relaxed filter drop-shadow mb-16 text-center;
 
       @screen lg {
-        @apply text-2xl;
+        @apply text-xl;
       }
       @screen 2xl {
-        @apply text-3xl;
+        @apply text-2xl;
       }
 
       b {
-        @apply bg-gray-900 px-2 rounded bg-opacity-50;
+        @apply bg-transparent px-2 rounded shadow-none border-2 uppercase border-primary;
+      }
+    }
+
+    .list {
+      @apply mb-32;
+      .item {
+        @apply flex items-center mb-4;
+        .icon {
+          @apply mr-6 text-4xl text-white;
+        }
+        .listText {
+          @apply mr-6 text-xl text-white;
+        }
       }
     }
     .button {
-      @apply rounded-full relative text-white bg-transparent uppercase font-bold border-2 border-white border-solid py-6 flex items-center justify-center w-auto pl-8 h-8 shadow-none text-base;
+      @apply rounded-full relative text-white bg-transparent uppercase font-bold border-2 border-white border-solid py-6 flex items-center justify-center w-auto pl-8 h-8 shadow-none text-base mx-auto;
       
       @screen xl {
         @apply pl-12 h-12 text-lg;

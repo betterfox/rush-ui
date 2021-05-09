@@ -7,7 +7,11 @@ import SeparateLineWithText from "./components/SeparateLineWithText";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.scss";
 import { Button } from "@material-ui/core";
-import { FiArrowRight } from "react-icons/fi";
+import { FiArrowRight, FiShoppingBag, FiThumbsUp, FiTrendingUp, FiTruck } from "react-icons/fi";
+import SwiperCore, {
+  EffectFade,Navigation,Pagination, Autoplay
+} from 'swiper/core';
+SwiperCore.use([EffectFade,Navigation,Pagination, Autoplay]);
 
 interface SigninFormDto {
   email: string;
@@ -147,6 +151,10 @@ const ContentSection = () => {
       className={styles.contentContainer}
       spaceBetween={0}
       slidesPerView={1}
+      effect="fade"
+      autoplay={true}
+      navigation={true}
+      pagination={{ clickable: true }}
       onSlideChange={() => console.log("slide change")}
       onSwiper={(swiper) => console.log(swiper)}
     >
@@ -161,11 +169,25 @@ const ContentSection = () => {
         <div className={styles.heroContentContainer}>
           <div className={styles.inner}>
             <div className={styles.title}>Rush Accounting</div>
-            <div className={styles.subtitle}>
-              One-stop online <b>Accounting</b> service
-              <br />
-              For small businesses, entrepreneurs and freelancers.
-            </div>
+            <div className={styles.subtitle}>Accounting have more fun</div>
+            <ul className={styles.list}>
+              <li className={styles.item}>
+                <FiShoppingBag className={styles.icon} />
+                <div className={styles.listText}>perspiciatis unde omnis iste natus</div>
+              </li>
+              <li className={styles.item}>
+                <FiTrendingUp className={styles.icon} />
+                <div className={styles.listText}>numquam eius modi tempora</div>
+              </li>
+              <li className={styles.item}>
+                <FiThumbsUp className={styles.icon} />
+                <div className={styles.listText}>Nam libero tempore</div>
+              </li>
+              <li className={styles.item}>
+                <FiTruck className={styles.icon} />
+                <div className={styles.listText}>cupidatat non proident</div>
+              </li>
+            </ul>
 
             <Button className={styles.button} variant="contained">
               Create new account
@@ -176,11 +198,43 @@ const ContentSection = () => {
       </SwiperSlide>
       <SwiperSlide
         className={styles.sliderItem}
-        style={{
-          backgroundImage: "url(/assets/images/signin/highlight-bg2.png)",
-        }}
       >
-        Item2
+        <div
+          className={styles.sliderItemBg}
+          style={{
+            backgroundImage: "url(/assets/images/signin/highlight-bg2.png)",
+          }}
+        ></div>
+
+        <div className={styles.heroContentContainer}>
+          <div className={styles.inner}>
+            <div className={styles.title}>Rush Accounting</div>
+            <div className={styles.subtitle}>Accounting have more fun</div>
+            <ul className={styles.list}>
+              <li className={styles.item}>
+                <FiShoppingBag className={styles.icon} />
+                <div className={styles.listText}>perspiciatis unde omnis iste natus</div>
+              </li>
+              <li className={styles.item}>
+                <FiTrendingUp className={styles.icon} />
+                <div className={styles.listText}>numquam eius modi tempora</div>
+              </li>
+              <li className={styles.item}>
+                <FiThumbsUp className={styles.icon} />
+                <div className={styles.listText}>Nam libero tempore</div>
+              </li>
+              <li className={styles.item}>
+                <FiTruck className={styles.icon} />
+                <div className={styles.listText}>cupidatat non proident</div>
+              </li>
+            </ul>
+
+            <Button className={styles.button} variant="contained">
+              Create new account
+              <FiArrowRight className={styles.icon} />
+            </Button>
+          </div>
+        </div>
       </SwiperSlide>
     </Swiper>
   );
