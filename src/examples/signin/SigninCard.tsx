@@ -80,7 +80,7 @@ const PageTitle = () => {
   return (
     <div className={styles.pageTitle}>
       <div className={styles.title}>Signin to:</div>
-      <div className={styles.subTitle}>Accounting</div>
+      <div className={styles.subtitle}>Accounting</div>
     </div>
   );
 };

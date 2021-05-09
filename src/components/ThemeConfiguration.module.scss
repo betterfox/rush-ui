@@ -14,3 +14,19 @@
         }
     }
 }
+
+.themeList {
+    @apply border rounded py-0;
+
+    .item {
+        @apply flex items-center border-b border-gray-100 border-solid;
+
+        .icon {
+            @apply w-4 h-4 mr-4 rounded-full;
+        }
+
+        &:last-child {
+            @apply border-none;
+        }
+    }
+}

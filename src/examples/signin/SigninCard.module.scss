@@ -31,7 +31,8 @@
   }
 
   .bgColorOverlay {
-    @apply absolute top-0 left-0 w-full h-full bg-background opacity-25 z-30;
+    @apply absolute top-0 left-0 w-full h-full bg-primary opacity-5 z-30;
+    mix-blend-mode: multiply;
   }
 
   .pageBody {
@@ -44,7 +45,7 @@
 }
 
 .card {
-  @apply shadow bg-surface py-20 px-6 z-40 rounded w-full h-full flex flex-col items-center justify-center min-h-screen;
+  @apply shadow-xl bg-surface py-20 px-6 z-40 rounded-lg w-full h-full flex flex-col items-center justify-center min-h-screen;
 
   @screen md {
     @apply h-auto min-h-0;
@@ -59,10 +60,10 @@
   @apply text-center mb-4;
 
   .title {
-    @apply text-gray-600;
+    @apply text-on-background opacity-50;
   }
   .subtitle {
-    @apply font-bold text-gray-700;
+    @apply font-bold text-primary;
   }
 }
 

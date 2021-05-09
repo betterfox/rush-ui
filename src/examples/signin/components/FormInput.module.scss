@@ -13,7 +13,7 @@
   }
 
   .icon {
-    @apply text-on-input px-2 border-r border-surface;
+    @apply text-on-input pl-3 text-lg border-surface opacity-50;
   }
 
   &.isError {

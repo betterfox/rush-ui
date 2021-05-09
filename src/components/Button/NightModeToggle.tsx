@@ -7,12 +7,12 @@ import styles from './NightModeToggle.module.scss';
 
 export default function NightModeToggle() {
 
-    const [ isDarkMode, setIsDarkMode ] = useState(false)
+    const [isDarkMode, setIsDarkMode] = useState(false)
 
     useEffect(() => {
         function setMode() {
-            const themeMode = localStorage.getItem("theme")
-            if(themeMode == "dark") {
+            const themeMode = localStorage.getItem("theme") || ""
+            if (themeMode.includes('dark')) {
                 setIsDarkMode(true)
             }
         }
@@ -21,19 +21,32 @@ export default function NightModeToggle() {
 
     useEffect(() => {
         function setMode() {
-            if(isDarkMode) {
-                document.body.setAttribute("data-theme", "dark");
-                localStorage.setItem("theme", "dark")
+            const themeMode = localStorage.getItem("theme") || ""
+            if (isDarkMode) {
+                const nextTheme = themeMode.replace("dark-", "")
+                if(nextTheme) {
+                    document.body.setAttribute("data-theme", "dark-" + nextTheme);
+                    localStorage.setItem("theme", "dark-" + nextTheme)
+                } else {
+                    document.body.setAttribute("data-theme", "dark");
+                    localStorage.setItem("theme", "dark")
+                }
             } else {
-                document.body.setAttribute("data-theme", "");
-                localStorage.setItem("theme", "light")
+                const nextTheme = themeMode.replace("dark-", "")
+                if(nextTheme) {
+                    document.body.setAttribute("data-theme", nextTheme);
+                    localStorage.setItem("theme", nextTheme)
+                } else {
+                    document.body.setAttribute("data-theme", "");
+                    localStorage.setItem("theme", "")
+                }
             }
         }
         setMode()
     }, [isDarkMode])
 
     return (
-        <Button 
+        <Button
             className={clsx(styles.button, { [styles.isDarkMode]: isDarkMode })}
             onClick={() => {
                 setIsDarkMode(!isDarkMode)
