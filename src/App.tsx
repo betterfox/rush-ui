@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./styles/variables.scss";
 import "./styles/fonts.scss";
 import "./styles/tailwind.scss";
@@ -8,6 +8,16 @@ import routes from "./routes";
 
 function App() {
   const routing = useRoutes(routes);
+  
+  useEffect(() => {
+    function setMode() {
+        const themeMode = localStorage.getItem("theme")
+        if(themeMode == "dark") {
+          localStorage.setItem("theme", "dark")
+        }
+    }
+    setMode()
+}, [])
 
   return (
     <>

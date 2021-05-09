@@ -1,5 +1,5 @@
 .button {
-  @apply rounded relative text-primary bg-white uppercase font-bold border-none py-3 flex items-center justify-center w-full h-12 shadow;
+  @apply rounded relative text-primary bg-background-600 uppercase font-bold border-none py-3 flex items-center justify-center w-full h-12 shadow;
 
   .label {
     @apply flex-1 text-gray-600;
@@ -11,6 +11,6 @@
 
   &:hover,
   &:focus {
-    @apply bg-gray-100 text-gray-700 shadow-md;
+    @apply bg-background-700 text-on-background shadow-md;
   }
 }
