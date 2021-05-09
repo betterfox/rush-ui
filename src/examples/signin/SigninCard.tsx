@@ -90,7 +90,7 @@ const AppLogo = () => {
     <div className={styles.appLogo}>
       <img
         className={styles.logoImg}
-        src="/assets/images/signin/logo-black.png"
+        src="/assets/images/signin/logo-white.png"
       />
       <h2 className={styles.title}>ABugLife Studio</h2>
     </div>

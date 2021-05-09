@@ -1,7 +1,7 @@
 .navbar {
     height: var(--navbar-height);
     z-index: 1200;
-    @apply left-0 w-full flex bg-background-600 shadow-lg;
+    @apply left-0 w-full flex bg-background shadow-lg;
     @apply transition-all duration-200;
 
     .toolbar {

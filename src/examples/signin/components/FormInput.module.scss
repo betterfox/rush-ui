@@ -1,26 +1,26 @@
 .formInput {
-  @apply relative mb-2 rounded bg-white border border-gray-200 shadow-sm flex items-center;
+  @apply relative mb-2 rounded bg-input border border-outline shadow-sm flex items-center;
 
   .inputContainer {
     @apply w-full;
   }
   .input {
-    @apply font-light text-gray-600 w-full px-3 py-1 w-full;
+    @apply font-light text-on-input px-3 py-1 w-full;
   }
 
   .hint {
-    @apply absolute right-0 top-0 h-full flex items-center text-xs text-gray-500 px-2;
+    @apply absolute right-0 top-0 h-full flex items-center text-xs text-on-input px-2;
   }
 
   .icon {
-    @apply text-gray-400 px-2 border-r;
+    @apply text-on-input px-2 border-r border-surface;
   }
 
   &.isError {
-    @apply border-red-500;
+    @apply border-error;
 
     .hint {
-      @apply text-red-500;
+      @apply text-error;
     }
   }
 }

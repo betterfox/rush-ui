@@ -3,13 +3,13 @@
 
   .section {
     .heading {
-      @apply border-b border-on-background-100 mb-4 py-4 mt-4;
+      @apply border-b border-on-background mb-4 py-4 mt-4;
 
       .title {
         @apply text-2xl font-bold mb-1 text-on-background;
       }
       .subtitle {
-        @apply text-on-background-300;
+        @apply text-on-background;
       }
     }
   }

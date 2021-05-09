@@ -1,8 +1,8 @@
 .button {
-  @apply rounded relative text-primary bg-background-600 uppercase font-bold border-none py-3 flex items-center justify-center w-full h-12 shadow;
+  @apply rounded relative text-primary bg-surface uppercase font-bold py-3 flex items-center justify-center w-full h-12 shadow border border-solid border-outline;
 
   .label {
-    @apply flex-1 text-gray-600;
+    @apply flex-1 text-on-surface;
   }
 
   .logoImg {
@@ -11,6 +11,6 @@
 
   &:hover,
   &:focus {
-    @apply bg-background-700 text-on-background shadow-md;
+    @apply bg-background text-on-background shadow-md;
   }
 }

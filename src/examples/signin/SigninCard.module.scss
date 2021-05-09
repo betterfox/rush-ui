@@ -2,7 +2,8 @@
   @apply mb-8;
 
   .logoImg {
-    @apply mx-auto h-20 w-auto mb-2;
+    @apply mx-auto h-20 w-auto mb-2 opacity-75;
+    mix-blend-mode: difference;
   }
 
   .title {
@@ -19,16 +20,18 @@
 
   .bgUpper {
     @apply absolute top-0 left-0 w-full h-full z-20 bg-cover bg-center;
+    mix-blend-mode: multiply;
     background-image: url(/assets/images/signin/bg.png);
   }
 
   .bgBelow {
     @apply absolute top-0 left-0 w-full h-full z-10 bg-cover bg-center;
+    mix-blend-mode: multiply;
     background-image: url(/assets/images/signin/bg1.svg);
   }
 
   .bgColorOverlay {
-    @apply absolute top-0 left-0 w-full h-full bg-background-600 opacity-25 z-30;
+    @apply absolute top-0 left-0 w-full h-full bg-background opacity-25 z-30;
   }
 
   .pageBody {
@@ -41,7 +44,7 @@
 }
 
 .card {
-  @apply shadow bg-card py-20 px-6 z-40 rounded w-full h-full flex flex-col items-center justify-center min-h-screen;
+  @apply shadow bg-surface py-20 px-6 z-40 rounded w-full h-full flex flex-col items-center justify-center min-h-screen;
 
   @screen md {
     @apply h-auto min-h-0;

@@ -2,10 +2,10 @@
   @apply relative block mb-8 w-40 mx-auto;
 
   hr {
-    @apply border border-background-300;
+    @apply border border-background;
   }
 
   .text {
-    @apply absolute top-1/2 left-1/2 bg-background px-4 text-sm text-on-background-300 transform -translate-x-2/4 -translate-y-2/4;
+    @apply absolute top-1/2 left-1/2 bg-surface px-4 text-sm text-secondary transform -translate-x-2/4 -translate-y-2/4;
   }
 }
