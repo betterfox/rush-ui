@@ -1,0 +1,21 @@
+<div [class.mb-2]="!noMargin">
+  <label *ngIf="label" class="block text-gray-700 text-sm font-bold mb-1">
+    {{label}}
+  </label>
+  <input [formControl]="form"
+    class="appearance-none border opacity-1 rounded w-full py-1 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline form-control"
+    [class.border-red-500]="error || isInvalid" [type]="_type" [placeholder]="placeholder || label"
+    (keydown.Space)="$event.stopImmediatePropagation();"
+    [disabled]="disabled" [ngbTypeahead]="search" *ngIf="autocomplete" [name]="name">
+  <input [formControl]="form"
+    class="appearance-none border opacity-1 rounded w-full py-1 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline form-control"
+    (keydown.Space)="$event.stopImmediatePropagation();"
+    [class.border-red-500]="error || isInvalid" [type]="_type" [placeholder]="placeholder || label"
+    [disabled]="disabled" *ngIf="!autocomplete"  [name]="name">
+  <ng-container *ngIf="(error && error.length)">
+    <p class="text-red-500 mb-1 text-xs italic" *ngFor="let item of error">{{ 'ERROR_FIELD.' + item | translate }}</p>
+  </ng-container>
+  <ng-container *ngIf="isInvalid">
+    <p class="text-red-500 mb-1 text-xs italic"  *ngIf="form?.errors?.required">{{ 'ERROR_FIELD.ISNOTEMPTY' | translate }}</p>
+  </ng-container>
+</div>

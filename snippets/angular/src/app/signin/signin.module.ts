@@ -4,17 +4,17 @@ import { CommonModule } from '@angular/common';
 import { SigninRoutingModule } from './signin-routing.module';
 import { SigninCardComponent } from './signin-card/signin-card.component';
 import { SigninFormComponent } from './signin-form/signin-form.component';
-import { FormInputComponent } from './components/form-input/form-input.component';
+import { AppComponentsModule } from '../components/components.module';
 
 
 @NgModule({
   declarations: [
     SigninCardComponent,
-    SigninFormComponent,
-    FormInputComponent
+    SigninFormComponent
   ],
   imports: [
     CommonModule,
+    AppComponentsModule,
     SigninRoutingModule
   ]
 })

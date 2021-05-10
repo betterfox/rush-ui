@@ -1,0 +1,13 @@
+input {
+  &::placeholder {
+    color: #CCC;
+  }
+
+  &:-ms-input-placeholder {
+    color: #CCC;
+  }
+
+  &::-ms-input-placeholder {
+    color: #CCC;
+  }
+}
