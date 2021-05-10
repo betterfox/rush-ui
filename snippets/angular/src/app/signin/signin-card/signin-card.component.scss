@@ -1,0 +1,44 @@
+.page {
+    @apply h-full min-h-screen relative flex items-center justify-center p-0 bg-background py-0;
+
+    @screen md {
+        @apply py-20;
+    }
+
+    .bg-upper {
+        @apply absolute top-0 left-0 w-full h-full z-20 bg-cover bg-center;
+        mix-blend-mode: multiply;
+        background-image: url(/assets/images/signin/bg.png);
+    }
+
+    .bg-below {
+        @apply absolute top-0 left-0 w-full h-full z-10 bg-cover bg-center;
+        mix-blend-mode: multiply;
+        background-image: url(/assets/images/signin/bg1.svg);
+    }
+
+    .bg-color-overlay {
+        @apply absolute top-0 left-0 w-full h-full bg-primary opacity-5 z-30;
+        mix-blend-mode: multiply;
+    }
+
+    .page-body {
+        @apply max-w-full w-full space-y-8 relative z-40 flex items-center;
+
+        @screen md {
+            @apply max-w-md;
+        }
+    }
+}
+
+.card {
+    @apply shadow-xl bg-surface py-20 px-6 z-40 rounded-lg w-full h-full flex flex-col items-center justify-center min-h-screen;
+
+    @screen md {
+        @apply h-auto min-h-0;
+    }
+
+    .card-inner {
+        @apply w-full max-w-xs;
+    }
+}
