@@ -1,12 +1,34 @@
 <div class="page">
-    <div class="bg-below"></div>
-    <div class="bg-upper"></div>
-    <div class="bg-color-overlay"></div>
-    <div class="page-body">
-        <div class="card">
-            <div class="card-inner">
-                
-            </div>
+  <div class="bg-below"></div>
+  <div class="bg-upper"></div>
+  <div class="bg-color-overlay"></div>
+  <div class="page-body">
+    <div class="card">
+      <div class="card-inner">
+        <div class="app-logo">
+          <img class="logo-img" src="/assets/images/signin/logo-white.png" />
+          <h2 class="title">ABugLife Studio</h2>
         </div>
+        <div class="page-title">
+          <div class="title">Signin to:</div>
+          <div class="subtitle">Accounting</div>
+        </div>
+        <div class="form">
+          <app-signin-form (onFormSubmit)="onSubmit($event)">
+          </app-signin-form>
+        </div>
+
+        <app-separate-line-with-text text="OR"></app-separate-line-with-text>
+
+        <div class="social-signin-container">
+          <app-button-social-signin text="Signin with Google" logo="/assets/images/social/google.png">
+          </app-button-social-signin>
+          <app-button-social-signin text="Signin with Line" logo="/assets/images/social/line.png">
+          </app-button-social-signin>
+          <app-button-social-signin text="Signin with Microsoft" logo="/assets/images/social/microsoft.png">
+          </app-button-social-signin>
+        </div>
+      </div>
     </div>
+  </div>
 </div>

@@ -3,10 +3,9 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormControl, NgControl, Valida
 import { Subscription, Observable } from 'rxjs';
 import { distinctUntilChanged, debounceTime, switchMap, mergeMap, catchError } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
-import { AutocompleteConfig } from 'src/app/models/autocomplete-config';
 
 @Component({
-    selector: 'app-input',
+    selector: 'form-input',
     templateUrl: './input.component.html',
     styleUrls: ['./input.component.scss'],
     providers: [
@@ -18,10 +17,10 @@ export class InputComponent implements ControlValueAccessor, OnInit, OnDestroy {
     @Output() valueChange: EventEmitter<string> = new EventEmitter();
     @Input() label: string;
     @Input() placeholder: string;
+    @Input() icon: string;
     @Input() name: string;
     @Input() error: string = null;
     @Input() noMargin: boolean = false;
-    @Input() autocomplete: AutocompleteConfig = null;
 
     onChange = (value: string) => { };
     onTouched = (value: boolean) => { };
@@ -108,31 +107,6 @@ export class InputComponent implements ControlValueAccessor, OnInit, OnDestroy {
 
     registerOnTouched(fn: () => void): void {
         this.onTouched = fn;
-    }
-
-    search = (text$: Observable<string>) => {
-        if (!this.autocomplete) { return null };
-        return text$.pipe(
-            debounceTime(200),
-            distinctUntilChanged()
-        ).pipe(
-            switchMap((term) => {
-                return this.http.get(this.autocomplete.url, {
-                    params: {
-                        keywords: term,
-                        field: this.autocomplete.field,
-                        uniqueness: this.autocomplete.field
-                    }
-                }).pipe(
-                    mergeMap((response: any) => {
-                        return [response];
-                    }),
-                    catchError(error => {
-                        return []
-                    })
-                )
-            })
-        )
     }
 
     get isInvalid() {

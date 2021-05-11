@@ -5,6 +5,8 @@ import { SigninRoutingModule } from './signin-routing.module';
 import { SigninCardComponent } from './signin-card/signin-card.component';
 import { SigninFormComponent } from './signin-form/signin-form.component';
 import { AppComponentsModule } from '../components/components.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -14,6 +16,9 @@ import { AppComponentsModule } from '../components/components.module';
   ],
   imports: [
     CommonModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppComponentsModule,
     SigninRoutingModule
   ]

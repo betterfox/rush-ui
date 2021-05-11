@@ -12,4 +12,9 @@ export class SigninCardComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+  onSubmit(dto) {
+    
+  }
+
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { InputBase } from "@material-ui/core";
 import { FormikProps } from "formik";
 import clsx from "clsx";
@@ -34,27 +34,31 @@ function FormInput({
   const isError =
     (formik?.touched ? formik?.touched[name] : null) &&
     (Boolean(formik?.errors ? formik?.errors[name] : null) as any);
+  const [isFocus, setIsFocus] = useState(false)
 
-  const inputClasses = clsx(styles.formInput,{ [styles.isError]: isError })
+  const inputClasses = clsx(styles.formInput, { 
+    [styles.isError]: isError,
+    [styles.isFocus]: isFocus
+  })
 
   return (
     <div className={inputClasses}>
       {prependIcon && <div className={styles.icon}>{prependIcon}</div>}
-      <div className={styles.inputContainer}>
-        <InputBase
-          name={name}
-          placeholder={placeholder}
-          className={styles.input}
-          type={type}
-          value={formik?.values ? formik?.values[name] : null}
-          onChange={formik?.handleChange}
-          error={isError}
-        />
-        {(formik?.touched ? formik?.touched[name] : null) &&
+      <InputBase
+        name={name}
+        placeholder={placeholder}
+        className={styles.input}
+        type={type}
+        value={formik?.values ? formik?.values[name] : null}
+        onChange={formik?.handleChange}
+        onFocus={() => { setIsFocus(true)}}
+        onBlur={() => { setIsFocus(false)}}
+        error={isError}
+      />
+      {(formik?.touched ? formik?.touched[name] : null) &&
         (formik?.errors ? formik?.errors[name] : null) ? (
-          <div className={styles.hint}>{formik?.errors[name]}</div>
-        ) : null}
-      </div>
+        <div className={styles.hint}>{formik?.errors[name]}</div>
+      ) : null}
     </div>
   );
 }

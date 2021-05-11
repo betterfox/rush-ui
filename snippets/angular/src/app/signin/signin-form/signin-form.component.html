@@ -1,24 +1,15 @@
 <form class="app-login" [formGroup]="form" (submit)="onSubmit()">
-    <div class="app-login-container" [appLoader]="isLoading">
-        <div class="mb-10 text-3xl text-center">
-            <span class="text-gray-700">{{company?.code}}</span><span class="idp-logo-text">IDP</span>
-        </div>
-        <div class="mb-8">
-            <form-input [placeholder]="'USERNAME' | translate" [required]="true" formControlName="username" type="text" name="username" [required]="true" [touched]="form.touched">
-            </form-input>
-            <form-input [placeholder]="'PASSWORD' | translate" [required]="true" formControlName="password" type="password" name="password" [required]="true" [touched]="form.touched">
-            </form-input>
-        </div>
-        <div>
-            <button type="submit" class="btn-primary w-full btn-form" mat-button>{{ 'SIGNIN' | translate }}</button>
-        </div>
-    </div>
-    <div class="mb-4">
-        <a class="text-indigo-600 underline" [routerLink]="['/forgot-password']">{{ 'FORGOT_PASSWORD' | translate }}</a> <span class="text-gray-600 mx-3">||</span> <a class="text-blue-700 underline" target="_blank" href="https://epa-manual.kigintergroup.com/">{{ 'MANUAL_LINK' | translate }}</a>
-    </div>
-    <div class="flex" id="language-selector">
-        <div *ngFor="let lang of languages" (click)="changeLanguage(lang)">
-            <span class="mr-2 ml-2 flag-icon flag-icon-{{lang.icon}}"></span>
-        </div>
-    </div>
+  <div class="form-container">
+    <form-input placeholder="abc@gmail.com" [required]="true" formControlName="username" type="text" name="username"
+      [required]="true" [touched]="form.touched" [icon]="['far', 'user']">
+    </form-input>
+    <form-input placeholder="Password" [required]="true" formControlName="password" type="password" name="password"
+      [required]="true" [touched]="form.touched" [icon]="['fas', 'key']">
+    </form-input>
+  </div>
+  <div class="additional-container">
+    <a class="link" href="/forgot-password">Forgot Password?</a>
+    <a class="link" href="/register">Create Account</a>
+  </div>
+  <app-button-loading type="submit" text="Sign In"></app-button-loading>
 </form>

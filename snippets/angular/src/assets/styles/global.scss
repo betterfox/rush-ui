@@ -31,7 +31,10 @@
     border-radius: 5px;
   }
 
-  &::-webkit-input-placeholder, &:-ms-input-placeholder, &:-moz-placeholder, &::-moz-placeholder  {
+  &::-webkit-input-placeholder,
+  &:-ms-input-placeholder,
+  &:-moz-placeholder,
+  &::-moz-placeholder {
     font-family: "Rubik Regular", "Prompt Regular" !important;
     @apply font-light;
   }

@@ -1,0 +1,21 @@
+.button {
+  @apply rounded relative text-on-primary bg-primary uppercase font-bold border-none px-4 flex items-center justify-center w-full h-12 shadow text-sm tracking-wider;
+  height: var(--button-height);
+
+  .icon {
+    @apply text-lg;
+  }
+  
+  ::ng-deep .mat-button-wrapper {
+    @apply w-full flex items-center justify-center h-full;
+  }
+
+  &:hover,
+  &:focus {
+    @apply bg-primary text-on-primary shadow-lg;
+  }
+}
+
+:host {
+  @apply w-full;
+}

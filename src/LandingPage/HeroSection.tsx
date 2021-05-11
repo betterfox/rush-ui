@@ -6,7 +6,7 @@ import styles from './HeroSection.module.scss';
 export default function HeroSection() {
   return (
     <div className={styles.heroSection}>
-      <div className="app-container">
+      <div className={styles.heroContainer}>
         <div className={styles.heroHeading}>
           <div className={styles.title}>Production Ready UI Boilerplate</div>
           <div className={styles.subtitle}>Crafted with TailwindCSS</div>

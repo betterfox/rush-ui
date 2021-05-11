@@ -1,11 +1,9 @@
 .formInput {
-  @apply relative mb-2 rounded bg-input border border-outline shadow-sm flex items-center;
+  @apply relative mb-2 rounded bg-input border border-outline shadow-sm flex items-center p-0;
+  height: var(--input-height);
 
-  .inputContainer {
-    @apply w-full;
-  }
   .input {
-    @apply font-light text-on-input px-3 py-1 w-full;
+    @apply font-light text-on-input px-3 py-0 w-full;
   }
 
   .hint {
@@ -14,6 +12,10 @@
 
   .icon {
     @apply text-on-input pl-3 text-lg border-surface opacity-50;
+  }
+  
+  &.isFocus {
+    @apply shadow-lg border-primary;
   }
 
   &.isError {

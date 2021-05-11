@@ -13,11 +13,11 @@
       rgba(252, 176, 69, 0) 100%
     );
   }
-  .appContainer {
-    @apply relative z-10;
+  .heroContainer {
+    @apply container relative z-10 mx-auto px-8;
   }
   .heroHeading {
-    @apply py-20 relative z-10;
+    @apply relative py-20 z-10;
     padding-top: calc(var(--navbar-topmost-height) + 10rem);
 
     .title {
