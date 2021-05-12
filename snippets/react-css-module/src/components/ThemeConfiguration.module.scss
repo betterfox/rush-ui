@@ -1,0 +1,32 @@
+.btnToggle {
+    @apply right-0 top-0 fixed z-50 bg-white rounded-none rounded-l-lg p-4 px-4 w-auto min-w-0 shadow-xl text-xl text-primary;
+    top: 20px;
+}
+
+.listContainer {
+    min-width: 200px;
+
+    .listItem {
+        @apply px-4 py-6 border-b;
+        
+        .title {
+            @apply mb-2 font-bold text-gray-700;
+        }
+    }
+}
+
+.themeList {
+    @apply border rounded py-0;
+
+    .item {
+        @apply flex items-center border-b border-gray-100 border-solid;
+
+        .icon {
+            @apply w-4 h-4 mr-4 rounded-full;
+        }
+
+        &:last-child {
+            @apply border-none;
+        }
+    }
+}

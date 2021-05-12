@@ -1,0 +1,34 @@
+.button {
+    @apply rounded-full relative w-16 h-8 min-w-0 bg-black bg-opacity-25;
+
+    .selected {
+        @apply w-1/2 h-full absolute left-1/2 top-0 p-0.5;
+        @apply transition-all transform duration-200 ease-in-out;
+
+        .toggleCircle {
+            @apply rounded-full w-full h-full bg-white shadow;
+        }
+    }
+
+    .item {
+        @apply w-1/2 flex items-center justify-center text-xl p-0 transform;
+
+        &.isLight {
+            @apply -translate-x-1 text-yellow-500;
+        }
+        &.isDark {
+            @apply translate-x-1 text-yellow-500;
+        }
+    }
+
+    &.isDarkMode {
+        @apply bg-opacity-75;
+        .selected {
+            @apply left-0;
+            
+            .toggleCircle {
+                @apply bg-gray-600;
+            }
+        }
+    }
+}
