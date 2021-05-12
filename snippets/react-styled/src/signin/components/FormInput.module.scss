@@ -1,0 +1,28 @@
+.formInput {
+  @apply relative mb-2 rounded bg-input border border-outline shadow-sm flex items-center p-0;
+  height: var(--input-height);
+
+  .input {
+    @apply font-light text-on-input px-3 py-0 w-full;
+  }
+
+  .hint {
+    @apply absolute right-0 top-0 h-full flex items-center text-xs text-on-input px-2;
+  }
+
+  .icon {
+    @apply text-on-input pl-3 text-lg border-surface opacity-50;
+  }
+  
+  &.isFocus {
+    @apply shadow-lg border-primary;
+  }
+
+  &.isError {
+    @apply border-error;
+
+    .hint {
+      @apply text-error;
+    }
+  }
+}
