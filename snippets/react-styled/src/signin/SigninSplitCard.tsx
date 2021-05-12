@@ -8,10 +8,19 @@ import styles from "./SigninSplitCard.module.scss";
 import SeparateLineWithText from "./components/SeparateLineWithText";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Button } from "@material-ui/core";
-import { FiArrowRight, FiShoppingBag, FiThumbsUp, FiTrendingUp, FiTruck } from "react-icons/fi";
+import {
+  FiArrowRight,
+  FiShoppingBag,
+  FiThumbsUp,
+  FiTrendingUp,
+  FiTruck,
+} from "react-icons/fi";
 import SwiperCore, {
-  EffectFade, Navigation, Pagination, Autoplay
-} from 'swiper/core';
+  EffectFade,
+  Navigation,
+  Pagination,
+  Autoplay,
+} from "swiper/core";
 SwiperCore.use([EffectFade, Navigation, Pagination, Autoplay]);
 
 interface SigninFormDto {
@@ -63,7 +72,10 @@ const SigninPage = () => {
                 </PageTitleContainer>
 
                 <AppFormContainer>
-                  <SigninForm message="Sign up" onSubmit={onSubmit}></SigninForm>
+                  <SigninForm
+                    message="Sign up"
+                    onSubmit={onSubmit}
+                  ></SigninForm>
                 </AppFormContainer>
 
                 <SeparateLineWithText text="OR" />
@@ -100,9 +112,7 @@ const SigninPage = () => {
           <FooterSeparateDot>•</FooterSeparateDot>
           <FooterLink>User Notice</FooterLink>
         </FooterLinkContainer>
-        <CopyRight>
-          @ 2021 ABugLife Studio, Inc. All rights reserved
-        </CopyRight>
+        <CopyRight>@ 2021 ABugLife Studio, Inc. All rights reserved</CopyRight>
       </Footer>
     </PageContainer>
   );
@@ -132,7 +142,6 @@ const PageTitle = styled.div`
 const PageSubTitle = styled.div`
   ${tw`font-bold text-primary`}
 `;
-
 
 const AppLogoContainer = styled.div`
   ${tw`mb-8 bg-surface`}
@@ -184,12 +193,14 @@ const PageBody = styled.div`
 `;
 
 const FormContainer = styled.div`
-  ${tw`w-1/2 py-8 px-4
-    md:( h-auto min-h-0 py-16 )`}
+  ${tw`w-full py-8 px-4
+    md:( h-auto min-h-0 py-16 w-1/2 )`}
 `;
 
 const FormInner = styled.div`
-  ${tw`max-w-xs mx-auto`}
+  ${tw`max-w-none mx-auto
+    md:(max-w-xs)
+  `}
 `;
 
 const CardContainer = styled.div`
@@ -198,15 +209,14 @@ const CardContainer = styled.div`
   `}
 `;
 const Card = styled.div`
-  ${tw`shadow-xl bg-surface p-0 z-40 rounded-lg w-full h-full flex items-center justify-center min-h-screen
-    md:( h-auto min-h-0 )
+  ${tw`shadow-xl bg-surface py-12 px-4 z-40 rounded-lg w-full h-full flex items-center justify-center min-h-0
+    md:( h-auto min-h-0 py-0 px-0 )
   `}
 `;
 
 const CardBody = styled.div`
-  ${tw`w-full flex items-center justify-center`}
+  ${tw`w-full flex items-stretch justify-center`}
 `;
-
 
 const Footer = styled.div`
   ${tw`flex flex-col items-center justify-center w-full px-4 py-4 sticky
@@ -250,14 +260,15 @@ const AppSwiper = ({ className, children }: any) => (
     navigation={true}
     pagination={{ clickable: true }}
     onSlideChange={() => console.log("slide change")}
-    onSwiper={(swiper) => console.log(swiper)}
   >
     {children}
   </Swiper>
 );
 
 const StyledSwiper = styled(AppSwiper)`
-  ${tw`w-1/2 hidden items-center justify-center flex-col`}
+  ${tw`w-1/2 hidden items-center justify-center flex-col
+    md:(flex)
+  `}
   --swiper-pagination-color: var(--background);
   --swiper-navigation-color: var(--background);
 `;
@@ -265,7 +276,7 @@ const StyledSwiper = styled(AppSwiper)`
 const ContentSection = () => {
   return (
     <StyledSwiper>
-      <SwiperSlide className={styles.sliderItem}>
+      <SwiperSlide>
         <div
           className={styles.sliderItemBg}
           style={{
@@ -280,7 +291,9 @@ const ContentSection = () => {
             <ul className={styles.list}>
               <li className={styles.item}>
                 <FiShoppingBag className={styles.icon} />
-                <div className={styles.listText}>perspiciatis unde omnis iste natus</div>
+                <div className={styles.listText}>
+                  perspiciatis unde omnis iste natus
+                </div>
               </li>
               <li className={styles.item}>
                 <FiTrendingUp className={styles.icon} />
@@ -303,9 +316,7 @@ const ContentSection = () => {
           </div>
         </div>
       </SwiperSlide>
-      <SwiperSlide
-        className={styles.sliderItem}
-      >
+      <SwiperSlide>
         <div
           className={styles.sliderItemBg}
           style={{
@@ -320,7 +331,9 @@ const ContentSection = () => {
             <ul className={styles.list}>
               <li className={styles.item}>
                 <FiShoppingBag className={styles.icon} />
-                <div className={styles.listText}>perspiciatis unde omnis iste natus</div>
+                <div className={styles.listText}>
+                  perspiciatis unde omnis iste natus
+                </div>
               </li>
               <li className={styles.item}>
                 <FiTrendingUp className={styles.icon} />

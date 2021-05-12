@@ -142,7 +142,7 @@ const CardContainer = styled.div`
   `}
 `;
 const Card = styled.div`
-  ${tw`shadow-xl bg-surface py-8 px-4 z-40 rounded-lg w-full h-full flex flex-col items-center justify-center min-h-screen max-w-md
+  ${tw`shadow-xl bg-surface py-12 px-4 z-40 rounded-lg w-full h-full flex flex-col items-center justify-center  min-h-0 max-w-md
     md:( h-auto min-h-0 py-16 )
   `}
 `;
