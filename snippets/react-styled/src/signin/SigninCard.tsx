@@ -82,10 +82,44 @@ const SigninPage = () => {
             </SocialSigninContainer>
           </CardBody>
         </Card>
+        <Footer>
+          <FooterLinkContainer>
+            <FooterLink>Privacy Policy</FooterLink>
+            <FooterSeparateDot>•</FooterSeparateDot>
+            <FooterLink>User Notice</FooterLink>
+          </FooterLinkContainer>
+          <CopyRight>
+            @ 2021 ABugLife Studio, Inc. All rights reserved
+          </CopyRight>
+        </Footer>
       </PageContainer>
     </>
   );
 };
+
+const Footer = styled.div`
+  ${tw`flex flex-col items-center justify-center w-full px-8 py-2`}
+`;
+
+const CopyRight = styled.div`
+  ${tw`text-on-background opacity-25`}
+`;
+
+const FooterLinkContainer = styled.div`
+  ${tw`flex items-center mb-4 space-x-4`}
+`;
+
+const FooterLink = styled.a`
+  ${tw`text-on-background opacity-50 cursor-pointer`}
+
+  &:hover {
+    ${tw`text-primary opacity-100`}
+  }
+`;
+
+const FooterSeparateDot = styled.div`
+  ${tw`opacity-50`}
+`;
 
 const AppFormContainer = styled.div`
   ${tw`mb-10`}
@@ -125,9 +159,10 @@ const AppLogo = () => {
 };
 
 const Card = styled.div`
-  ${tw`shadow-xl bg-surface py-20 px-6 z-40 rounded-lg w-full h-full flex flex-col items-center justify-center min-h-screen
-    md:( h-auto min-h-0 py-12 )
+  ${tw`shadow-xl bg-surface py-20 px-6 z-40 rounded-lg w-full h-full flex flex-col items-center justify-center min-h-screen max-w-md
+    md:( h-auto py-12 )
   `}
+  min-height: 90vh;
 `;
 
 const CardBody = styled.div`
@@ -158,8 +193,8 @@ const PageContainer = ({ children }: PageContainerProps) => {
 };
 
 const Page = styled.div`
-  ${tw`h-full min-h-screen relative flex items-center justify-center p-0 bg-background py-0
-    md:(py-4)
+  ${tw`h-full min-h-screen relative flex items-center justify-center p-0 bg-background py-0 pt-0
+    md:(py-4 pt-12)
   `}
 `;
 
@@ -176,8 +211,7 @@ const PageBgOverlay = styled.div`
   ${tw`absolute top-0 left-0 w-full h-full bg-primary opacity-5 z-30 mix-blend-multiply`}
 `;
 const PageBody = styled.div`
-  ${tw`max-w-full w-full space-y-8 relative z-40 flex items-center
-    md:( max-w-md )
+  ${tw`max-w-full w-full space-y-8 relative z-40 flex flex-col items-center
   `}
 `;
 

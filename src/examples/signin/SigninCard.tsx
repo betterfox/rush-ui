@@ -1,10 +1,11 @@
 import React, { ReactNode, useState } from "react";
+import styled from "styled-components";
+import tw from "twin.macro";
 import SigninForm from "./SigninForm";
 import SocialSigninButton from "./components/SocialSigninButton";
 import { Helmet } from "react-helmet";
 import { Alert } from "@material-ui/lab";
 import SeparateLineWithText from "./components/SeparateLineWithText";
-import styles from "./SigninCard.module.scss";
 import { RequestStatus } from "./enum/request.enum";
 
 interface SigninFormDto {
@@ -48,102 +49,136 @@ const SigninPage = () => {
         <title>SignIn Page</title>
       </Helmet>
       <PageContainer>
-        <CardContainer>
-          <AppLogo />
-          <PageTitle />
-          <AppFormContainer>
-            {data.error && (
-              <Alert severity="error" className={styles.errorAlert}>
-                {data.error}
-              </Alert>
-            )}
-            <SigninForm message="Sign up" onSubmit={onSubmit}></SigninForm>
-          </AppFormContainer>
+        <Card>
+          <CardBody>
+            <AppLogo />
+            <PageTitleContainer>
+              <PageTitle>Signin to:</PageTitle>
+              <PageSubTitle>Accounting</PageSubTitle>
+            </PageTitleContainer>
+            <AppFormContainer>
+              <SigninForm message="Sign up" onSubmit={onSubmit}></SigninForm>
+            </AppFormContainer>
 
-          <SeparateLineWithText text="OR" />
-          <SocialSignin />
-        </CardContainer>
+            <SeparateLineWithText text="OR" />
+            <SocialSigninContainer>
+              <SocialSigninButton
+                text="Signin with Google"
+                logo="/assets/images/social/google.png"
+                type="button"
+              />
+
+              <SocialSigninButton
+                text="Signin with Line"
+                logo="/assets/images/social/line.png"
+                type="button"
+              />
+
+              <SocialSigninButton
+                text="Signin with Microsoft"
+                logo="/assets/images/social/microsoft.png"
+                type="button"
+              />
+            </SocialSigninContainer>
+          </CardBody>
+        </Card>
       </PageContainer>
     </>
   );
 };
 
-interface AppFormContainerProps {
-  children: ReactNode;
-}
+const AppFormContainer = styled.div`
+  ${tw`mb-10`}
+`;
 
-const AppFormContainer = ({ children }: AppFormContainerProps) => {
-  return <div className={styles.form}>{children}</div>;
-};
+const PageTitleContainer = styled.div`
+  ${tw`text-center mb-4`}
+`;
 
-const PageTitle = () => {
-  return (
-    <div className={styles.pageTitle}>
-      <div className={styles.title}>Signin to:</div>
-      <div className={styles.subtitle}>Accounting</div>
-    </div>
-  );
-};
+const PageTitle = styled.div`
+  ${tw`text-on-background opacity-50`}
+`;
+
+const PageSubTitle = styled.div`
+  ${tw`font-bold text-primary`}
+`;
+
+const AppLogoContainer = styled.div`
+  ${tw`mb-8 bg-surface`}
+`;
+
+const AppLogoImage = styled.img`
+  ${tw`mx-auto h-20 w-auto mb-2 opacity-75 mix-blend-difference`}
+`;
+
+const AppTitle = styled.div`
+  ${tw`text-center text-xl font-extrabold text-on-background`}
+`;
 
 const AppLogo = () => {
   return (
-    <div className={styles.appLogo}>
-      <img
-        className={styles.logoImg}
-        src="/assets/images/signin/logo-white.png"
-      />
-      <h2 className={styles.title}>ABugLife Studio</h2>
-    </div>
+    <AppLogoContainer>
+      <AppLogoImage src="/assets/images/signin/logo-white.png" />
+      <AppTitle>ABugLife Studio</AppTitle>
+    </AppLogoContainer>
   );
 };
+
+const Card = styled.div`
+  ${tw`shadow-xl bg-surface py-20 px-6 z-40 rounded-lg w-full h-full flex flex-col items-center justify-center min-h-screen
+    md:( h-auto min-h-0 py-12 )
+  `}
+`;
+
+const CardBody = styled.div`
+  ${tw`w-full max-w-xs`}
+`;
+
+const SocialSigninContainer = styled.div`
+  & > * {
+    ${tw`mb-2`}
+  }
+  & > *:last-child {
+    ${tw`mb-0`}
+  }
+`;
 
 interface PageContainerProps {
   children: ReactNode;
 }
 const PageContainer = ({ children }: PageContainerProps) => {
   return (
-    <div className={styles.page}>
-      <div className={styles.bgBelow}></div>
-      <div className={styles.bgUpper}></div>
-      <div className={styles.bgColorOverlay}></div>
-      <div className={styles.pageBody}>{children}</div>
-    </div>
+    <Page>
+      <PageBgBelow></PageBgBelow>
+      <PageBgUpper></PageBgUpper>
+      <PageBgOverlay></PageBgOverlay>
+      <PageBody>{children}</PageBody>
+    </Page>
   );
 };
 
-interface CardContainerProps {
-  children: ReactNode;
-}
-const CardContainer = ({ children }: CardContainerProps) => {
-  return (
-    <div className={styles.card}>
-      <div className={styles.cardInner}>{children}</div>
-    </div>
-  );
-};
+const Page = styled.div`
+  ${tw`h-full min-h-screen relative flex items-center justify-center p-0 bg-background py-0
+    md:(py-4)
+  `}
+`;
 
-const SocialSignin = () => {
-  return (
-    <div className={styles.socialSigninContainer}>
-      <SocialSigninButton
-        text="Signin with Google"
-        logo="/assets/images/social/google.png"
-        type="button"
-      />
+const PageBgBelow = styled.div`
+  ${tw`absolute top-0 left-0 w-full h-full z-10 bg-cover bg-center mix-blend-multiply`}
+  background-image: url(/assets/images/signin/bg1.svg);
+`;
+const PageBgUpper = styled.div`
+  ${tw`absolute top-0 left-0 w-full h-full z-20 bg-cover bg-center mix-blend-multiply`}
+  background-image: url(/assets/images/signin/bg.png);
+`;
 
-      <SocialSigninButton
-        text="Signin with Line"
-        logo="/assets/images/social/line.png"
-        type="button"
-      />
-
-      <SocialSigninButton
-        text="Signin with Microsoft"
-        logo="/assets/images/social/microsoft.png"
-        type="button"
-      />
-    </div>
-  );
-};
+const PageBgOverlay = styled.div`
+  ${tw`absolute top-0 left-0 w-full h-full bg-primary opacity-5 z-30 mix-blend-multiply`}
+`;
+const PageBody = styled.div`
+  ${tw`max-w-full w-full space-y-8 relative z-40 flex items-center
+    md:( max-w-md )
+  `}
+`;
 
 export default SigninPage;
