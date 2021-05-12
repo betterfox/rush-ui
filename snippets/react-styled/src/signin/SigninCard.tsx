@@ -1,4 +1,6 @@
 import React, { ReactNode, useState } from "react";
+import styled from "styled-components";
+import tw from "twin.macro";
 import SigninForm from "./SigninForm";
 import SocialSigninButton from "./components/SocialSigninButton";
 import { Helmet } from "react-helmet";
@@ -50,7 +52,10 @@ const SigninPage = () => {
       <PageContainer>
         <CardContainer>
           <AppLogo />
-          <PageTitle />
+          <PageTitleContainer>
+            <PageTitle>Signin to:</PageTitle>
+            <PageSubTitle>Accounting</PageSubTitle>
+          </PageTitleContainer>
           <AppFormContainer>
             {data.error && (
               <Alert severity="error" className={styles.errorAlert}>
@@ -68,22 +73,30 @@ const SigninPage = () => {
   );
 };
 
-interface AppFormContainerProps {
-  children: ReactNode;
-}
+const AppFormContainer = styled.div`
+  ${tw`mb-10`}
+`;
 
-const AppFormContainer = ({ children }: AppFormContainerProps) => {
-  return <div className={styles.form}>{children}</div>;
-};
+const PageTitleContainer = styled.div`
+  ${tw`text-center mb-4`}
+`
 
-const PageTitle = () => {
-  return (
-    <div className={styles.pageTitle}>
-      <div className={styles.title}>Signin to:</div>
-      <div className={styles.subtitle}>Accounting</div>
-    </div>
-  );
-};
+const PageTitle = styled.div`
+  ${tw`text-on-background opacity-50`}
+`
+
+const PageSubTitle = styled.div`
+  ${tw`font-bold text-primary`}
+`
+
+// const PageTitle = () => {
+//   return (
+//     <div className={styles.pageTitle}>
+//       <div className={styles.title}>Signin to:</div>
+//       <div className={styles.subtitle}>Accounting</div>
+//     </div>
+//   );
+// };
 
 const AppLogo = () => {
   return (
