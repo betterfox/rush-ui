@@ -49,6 +49,7 @@ const SigninPage = () => {
         <title>SignIn Page</title>
       </Helmet>
       <PageContainer>
+        <CardContainer>
         <Card>
           <CardBody>
             <AppLogo />
@@ -82,6 +83,7 @@ const SigninPage = () => {
             </SocialSigninContainer>
           </CardBody>
         </Card>
+        </CardContainer>
         <Footer>
           <FooterLinkContainer>
             <FooterLink>Privacy Policy</FooterLink>
@@ -98,19 +100,27 @@ const SigninPage = () => {
 };
 
 const Footer = styled.div`
-  ${tw`flex flex-col items-center justify-center w-full px-8 py-2`}
+  ${tw`flex flex-col items-center justify-center w-full px-4 py-4 sticky
+    md:(px-8 py-8)
+  `}
 `;
 
 const CopyRight = styled.div`
-  ${tw`text-on-background opacity-25`}
+  ${tw`text-on-background opacity-25 text-center whitespace-nowrap text-sm
+    md:(text-base)
+  `}
 `;
 
 const FooterLinkContainer = styled.div`
-  ${tw`flex items-center mb-4 space-x-4`}
+  ${tw`flex items-center mb-1 space-x-4 text-sm
+    md:(mb-4 text-base)
+  `}
 `;
 
 const FooterLink = styled.a`
-  ${tw`text-on-background opacity-50 cursor-pointer`}
+  ${tw`text-on-background opacity-50 cursor-pointer text-sm
+    md:(text-base)
+  `}
 
   &:hover {
     ${tw`text-primary opacity-100`}
@@ -158,11 +168,15 @@ const AppLogo = () => {
   );
 };
 
-const Card = styled.div`
-  ${tw`shadow-xl bg-surface py-20 px-6 z-40 rounded-lg w-full h-full flex flex-col items-center justify-center min-h-screen max-w-md
-    md:( h-auto py-12 )
+const CardContainer = styled.div`
+  ${tw`flex-1 flex items-center w-full max-w-md mx-auto pt-4
+    md:(pt-8)
   `}
-  min-height: 90vh;
+`;
+const Card = styled.div`
+  ${tw`shadow-xl bg-surface py-8 px-4 z-40 rounded-lg w-full h-full flex flex-col items-center justify-center min-h-screen max-w-md
+    md:( h-auto min-h-0 py-16 )
+  `}
 `;
 
 const CardBody = styled.div`
@@ -184,7 +198,6 @@ interface PageContainerProps {
 const PageContainer = ({ children }: PageContainerProps) => {
   return (
     <Page>
-      {/* <PageBgBelow></PageBgBelow> */}
       <PageBgUpper></PageBgUpper>
       <PageBgOverlay></PageBgOverlay>
       <PageBody>{children}</PageBody>
@@ -193,14 +206,7 @@ const PageContainer = ({ children }: PageContainerProps) => {
 };
 
 const Page = styled.div`
-  ${tw`h-full min-h-screen relative flex items-center justify-center p-0 bg-background py-0 pt-0
-    md:(py-4 pt-12)
-  `}
-`;
-
-const PageBgBelow = styled.div`
-  ${tw`absolute top-0 left-0 w-full h-full z-10 bg-cover bg-center mix-blend-multiply`}
-  background-image: url(/assets/images/signin/bg1.svg);
+  ${tw`h-full min-h-screen relative flex items-center justify-center p-0 bg-background`}
 `;
 const PageBgUpper = styled.div`
   ${tw`absolute top-0 left-0 w-full h-full z-20 bg-cover bg-center mix-blend-multiply`}
@@ -211,7 +217,7 @@ const PageBgOverlay = styled.div`
   ${tw`absolute top-0 left-0 w-full h-full bg-primary opacity-5 z-30 mix-blend-multiply`}
 `;
 const PageBody = styled.div`
-  ${tw`max-w-full w-full space-y-8 relative z-40 flex flex-col items-center
+  ${tw`max-w-full w-full relative z-40 flex flex-col items-center min-h-screen px-4
   `}
 `;
 
