@@ -184,7 +184,7 @@ interface PageContainerProps {
 const PageContainer = ({ children }: PageContainerProps) => {
   return (
     <Page>
-      <PageBgBelow></PageBgBelow>
+      {/* <PageBgBelow></PageBgBelow> */}
       <PageBgUpper></PageBgUpper>
       <PageBgOverlay></PageBgOverlay>
       <PageBody>{children}</PageBody>
@@ -204,7 +204,7 @@ const PageBgBelow = styled.div`
 `;
 const PageBgUpper = styled.div`
   ${tw`absolute top-0 left-0 w-full h-full z-20 bg-cover bg-center mix-blend-multiply`}
-  background-image: url(/assets/images/signin/bg.png);
+  background-image: url(/assets/images/signin/bg2.png);
 `;
 
 const PageBgOverlay = styled.div`
