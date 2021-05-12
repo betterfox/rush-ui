@@ -89,15 +89,6 @@ const PageSubTitle = styled.div`
   ${tw`font-bold text-primary`}
 `
 
-// const PageTitle = () => {
-//   return (
-//     <div className={styles.pageTitle}>
-//       <div className={styles.title}>Signin to:</div>
-//       <div className={styles.subtitle}>Accounting</div>
-//     </div>
-//   );
-// };
-
 const AppLogo = () => {
   return (
     <div className={styles.appLogo}>
