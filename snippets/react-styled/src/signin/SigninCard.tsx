@@ -50,39 +50,39 @@ const SigninPage = () => {
       </Helmet>
       <PageContainer>
         <CardContainer>
-        <Card>
-          <CardBody>
-            <AppLogo />
-            <PageTitleContainer>
-              <PageTitle>Signin to:</PageTitle>
-              <PageSubTitle>Accounting</PageSubTitle>
-            </PageTitleContainer>
-            <AppFormContainer>
-              <SigninForm message="Sign up" onSubmit={onSubmit}></SigninForm>
-            </AppFormContainer>
+          <Card>
+            <CardBody>
+              <AppLogo />
+              <PageTitleContainer>
+                <PageTitle>Signin to:</PageTitle>
+                <PageSubTitle>Accounting</PageSubTitle>
+              </PageTitleContainer>
+              <AppFormContainer>
+                <SigninForm message="Sign up" onSubmit={onSubmit}></SigninForm>
+              </AppFormContainer>
 
-            <SeparateLineWithText text="OR" />
-            <SocialSigninContainer>
-              <SocialSigninButton
-                text="Signin with Google"
-                logo="/assets/images/social/google.png"
-                type="button"
-              />
+              <SeparateLineWithText text="OR" />
+              <SocialSigninContainer>
+                <SocialSigninButton
+                  text="Signin with Google"
+                  logo="/assets/images/social/google.png"
+                  type="button"
+                />
 
-              <SocialSigninButton
-                text="Signin with Line"
-                logo="/assets/images/social/line.png"
-                type="button"
-              />
+                <SocialSigninButton
+                  text="Signin with Line"
+                  logo="/assets/images/social/line.png"
+                  type="button"
+                />
 
-              <SocialSigninButton
-                text="Signin with Microsoft"
-                logo="/assets/images/social/microsoft.png"
-                type="button"
-              />
-            </SocialSigninContainer>
-          </CardBody>
-        </Card>
+                <SocialSigninButton
+                  text="Signin with Microsoft"
+                  logo="/assets/images/social/microsoft.png"
+                  type="button"
+                />
+              </SocialSigninContainer>
+            </CardBody>
+          </Card>
         </CardContainer>
         <Footer>
           <FooterLinkContainer>
@@ -98,38 +98,6 @@ const SigninPage = () => {
     </>
   );
 };
-
-const Footer = styled.div`
-  ${tw`flex flex-col items-center justify-center w-full px-4 py-4 sticky
-    md:(px-8 py-8)
-  `}
-`;
-
-const CopyRight = styled.div`
-  ${tw`text-on-background opacity-25 text-center whitespace-nowrap text-sm
-    md:(text-base)
-  `}
-`;
-
-const FooterLinkContainer = styled.div`
-  ${tw`flex items-center mb-1 space-x-4 text-sm
-    md:(mb-4 text-base)
-  `}
-`;
-
-const FooterLink = styled.a`
-  ${tw`text-on-background opacity-50 cursor-pointer text-sm
-    md:(text-base)
-  `}
-
-  &:hover {
-    ${tw`text-primary opacity-100`}
-  }
-`;
-
-const FooterSeparateDot = styled.div`
-  ${tw`opacity-50`}
-`;
 
 const AppFormContainer = styled.div`
   ${tw`mb-10`}
@@ -219,6 +187,38 @@ const PageBgOverlay = styled.div`
 const PageBody = styled.div`
   ${tw`max-w-full w-full relative z-40 flex flex-col items-center min-h-screen px-4
   `}
+`;
+
+const Footer = styled.div`
+  ${tw`flex flex-col items-center justify-center w-full px-4 py-4 sticky
+    md:(px-8 py-8)
+  `}
+`;
+
+const CopyRight = styled.div`
+  ${tw`text-on-background opacity-25 text-center whitespace-nowrap text-sm
+    md:(text-base)
+  `}
+`;
+
+const FooterLinkContainer = styled.div`
+  ${tw`flex items-center mb-1 space-x-4 text-sm
+    md:(mb-4 text-base)
+  `}
+`;
+
+const FooterLink = styled.a`
+  ${tw`text-on-background opacity-50 cursor-pointer text-sm
+    md:(text-base)
+  `}
+
+  &:hover {
+    ${tw`text-primary opacity-100`}
+  }
+`;
+
+const FooterSeparateDot = styled.div`
+  ${tw`opacity-50`}
 `;
 
 export default SigninPage;

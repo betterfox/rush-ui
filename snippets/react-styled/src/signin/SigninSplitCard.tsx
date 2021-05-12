@@ -1,4 +1,6 @@
 import React, { ReactNode, useState } from "react";
+import styled from "styled-components";
+import tw from "twin.macro";
 import SigninForm from "./SigninForm";
 import SocialSigninButton from "./components/SocialSigninButton";
 import { RequestStatus } from "./enum/request.enum";
@@ -8,9 +10,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Button } from "@material-ui/core";
 import { FiArrowRight, FiShoppingBag, FiThumbsUp, FiTrendingUp, FiTruck } from "react-icons/fi";
 import SwiperCore, {
-  EffectFade,Navigation,Pagination, Autoplay
+  EffectFade, Navigation, Pagination, Autoplay
 } from 'swiper/core';
-SwiperCore.use([EffectFade,Navigation,Pagination, Autoplay]);
+SwiperCore.use([EffectFade, Navigation, Pagination, Autoplay]);
 
 interface SigninFormDto {
   email: string;
@@ -50,122 +52,219 @@ const SigninPage = () => {
   return (
     <PageContainer>
       <CardContainer>
-        <FormContainer>
-          <AppLogo />
-          <PageTitle />
+        <Card>
+          <CardBody>
+            <FormContainer>
+              <FormInner>
+                <AppLogo />
+                <PageTitleContainer>
+                  <PageTitle>Signin to:</PageTitle>
+                  <PageSubTitle>Accounting</PageSubTitle>
+                </PageTitleContainer>
 
-          <AppFormContainer>
-            <SigninForm message="Sign up" onSubmit={onSubmit}></SigninForm>
-          </AppFormContainer>
+                <AppFormContainer>
+                  <SigninForm message="Sign up" onSubmit={onSubmit}></SigninForm>
+                </AppFormContainer>
 
-          <SeparateLineWithText text="OR" />
+                <SeparateLineWithText text="OR" />
 
-          <SocialSignin />
-        </FormContainer>
-        <ContentSection />
+                <SocialSigninContainer>
+                  <SocialSigninButton
+                    text="Signin with Google"
+                    logo="/assets/images/social/google.png"
+                    type="button"
+                  />
+
+                  <SocialSigninButton
+                    text="Signin with Line"
+                    logo="/assets/images/social/line.png"
+                    type="button"
+                  />
+
+                  <SocialSigninButton
+                    text="Signin with Microsoft"
+                    logo="/assets/images/social/microsoft.png"
+                    type="button"
+                  />
+                </SocialSigninContainer>
+              </FormInner>
+            </FormContainer>
+
+            <ContentSection />
+          </CardBody>
+        </Card>
       </CardContainer>
+      <Footer>
+        <FooterLinkContainer>
+          <FooterLink>Privacy Policy</FooterLink>
+          <FooterSeparateDot>•</FooterSeparateDot>
+          <FooterLink>User Notice</FooterLink>
+        </FooterLinkContainer>
+        <CopyRight>
+          @ 2021 ABugLife Studio, Inc. All rights reserved
+        </CopyRight>
+      </Footer>
     </PageContainer>
-  );
-};
-
-interface AppFormContainerProps {
-  children: ReactNode;
-}
-
-const AppFormContainer = ({ children }: AppFormContainerProps) => {
-  return <div className={styles.form}>{children}</div>;
-};
-
-const PageTitle = () => {
-  return (
-    <div className={styles.pageTitle}>
-      <div className={styles.title}>Signin to:</div>
-      <div className={styles.subtitle}>Accounting</div>
-    </div>
   );
 };
 
 const AppLogo = () => {
   return (
-    <div className={styles.appLogo}>
-      <img
-        className={styles.logoImg}
-        src="/assets/images/signin/logo-white.png"
-      />
-      <h2 className={styles.title}>ABugLife Studio</h2>
-    </div>
+    <AppLogoContainer>
+      <AppLogoImage src="/assets/images/signin/logo-white.png" />
+      <AppTitle>ABugLife Studio</AppTitle>
+    </AppLogoContainer>
   );
 };
+
+const AppFormContainer = styled.div`
+  ${tw`mb-10`}
+`;
+
+const PageTitleContainer = styled.div`
+  ${tw`text-center mb-4`}
+`;
+
+const PageTitle = styled.div`
+  ${tw`text-on-background opacity-50`}
+`;
+
+const PageSubTitle = styled.div`
+  ${tw`font-bold text-primary`}
+`;
+
+
+const AppLogoContainer = styled.div`
+  ${tw`mb-8 bg-surface`}
+`;
+
+const AppLogoImage = styled.img`
+  ${tw`mx-auto h-20 w-auto mb-2 opacity-75 mix-blend-difference`}
+`;
+
+const AppTitle = styled.div`
+  ${tw`text-center text-xl font-extrabold text-on-background`}
+`;
+
+const SocialSigninContainer = styled.div`
+  & > * {
+    ${tw`mb-2`}
+  }
+  & > *:last-child {
+    ${tw`mb-0`}
+  }
+`;
 
 interface PageContainerProps {
   children: ReactNode;
 }
 const PageContainer = ({ children }: PageContainerProps) => {
   return (
-    <div className={styles.page}>
-      <div className={styles.bgBelow}></div>
-      <div className={styles.bgUpper}></div>
-      <div className={styles.bgColorOverlay}></div>
-      <div className={styles.pageBody}>{children}</div>
-    </div>
+    <Page>
+      <PageBgUpper></PageBgUpper>
+      <PageBgOverlay></PageBgOverlay>
+      <PageBody>{children}</PageBody>
+    </Page>
   );
 };
 
-interface FormContainerProps {
-  children: ReactNode;
-}
-const FormContainer = ({ children }: FormContainerProps) => {
-  return (
-    <div className={styles.formContainer}>
-      <div className={styles.formBody}>{children}</div>
-    </div>
-  );
-};
+const Page = styled.div`
+  ${tw`h-full min-h-screen relative flex items-center justify-center p-0 bg-background`}
+`;
+const PageBgUpper = styled.div`
+  ${tw`absolute top-0 left-0 w-full h-full z-20 bg-cover bg-center mix-blend-multiply`}
+  background-image: url(/assets/images/signin/bg2.png);
+`;
 
-interface CardContainerProps {
-  children: ReactNode;
-}
-const CardContainer = ({ children }: CardContainerProps) => {
-  return <div className={styles.card}>{children}</div>;
-};
+const PageBgOverlay = styled.div`
+  ${tw`absolute top-0 left-0 w-full h-full bg-primary opacity-5 z-30 mix-blend-multiply`}
+`;
+const PageBody = styled.div`
+  ${tw`max-w-full w-full relative z-40 flex flex-col items-center min-h-screen px-4`}
+`;
 
-const SocialSignin = () => {
-  return (
-    <div className={styles.socialSigninContainer}>
-      <SocialSigninButton
-        text="Signin with Google"
-        logo="/assets/images/social/google.png"
-        type="button"
-      />
+const FormContainer = styled.div`
+  ${tw`w-1/2 py-8 px-4
+    md:( h-auto min-h-0 py-16 )`}
+`;
 
-      <SocialSigninButton
-        text="Signin with Line"
-        logo="/assets/images/social/line.png"
-        type="button"
-      />
+const FormInner = styled.div`
+  ${tw`max-w-xs mx-auto`}
+`;
 
-      <SocialSigninButton
-        text="Signin with Microsoft"
-        logo="/assets/images/social/microsoft.png"
-        type="button"
-      />
-    </div>
-  );
-};
+const CardContainer = styled.div`
+  ${tw`flex-1 flex items-center w-full max-w-6xl mx-auto pt-4
+    md:(pt-8)
+  `}
+`;
+const Card = styled.div`
+  ${tw`shadow-xl bg-surface p-0 z-40 rounded-lg w-full h-full flex items-center justify-center min-h-screen
+    md:( h-auto min-h-0 )
+  `}
+`;
+
+const CardBody = styled.div`
+  ${tw`w-full flex items-center justify-center`}
+`;
+
+
+const Footer = styled.div`
+  ${tw`flex flex-col items-center justify-center w-full px-4 py-4 sticky
+    md:(px-8 py-8)
+  `}
+`;
+
+const CopyRight = styled.div`
+  ${tw`text-on-background opacity-25 text-center whitespace-nowrap text-sm
+    md:(text-base)
+  `}
+`;
+
+const FooterLinkContainer = styled.div`
+  ${tw`flex items-center mb-1 space-x-4 text-sm
+    md:(mb-4 text-base)
+  `}
+`;
+
+const FooterLink = styled.a`
+  ${tw`text-on-background opacity-50 cursor-pointer text-sm
+    md:(text-base)
+  `}
+
+  &:hover {
+    ${tw`text-primary opacity-100`}
+  }
+`;
+
+const FooterSeparateDot = styled.div`
+  ${tw`opacity-50`}
+`;
+
+const AppSwiper = ({ className, children }: any) => (
+  <Swiper
+    className={className}
+    spaceBetween={0}
+    slidesPerView={1}
+    effect="fade"
+    autoplay={true}
+    navigation={true}
+    pagination={{ clickable: true }}
+    onSlideChange={() => console.log("slide change")}
+    onSwiper={(swiper) => console.log(swiper)}
+  >
+    {children}
+  </Swiper>
+);
+
+const StyledSwiper = styled(AppSwiper)`
+  ${tw`w-1/2 hidden items-center justify-center flex-col`}
+  --swiper-pagination-color: var(--background);
+  --swiper-navigation-color: var(--background);
+`;
 
 const ContentSection = () => {
   return (
-    <Swiper
-      className={styles.contentContainer}
-      spaceBetween={0}
-      slidesPerView={1}
-      effect="fade"
-      autoplay={true}
-      navigation={true}
-      pagination={{ clickable: true }}
-      onSlideChange={() => console.log("slide change")}
-      onSwiper={(swiper) => console.log(swiper)}
-    >
+    <StyledSwiper>
       <SwiperSlide className={styles.sliderItem}>
         <div
           className={styles.sliderItemBg}
@@ -244,7 +343,7 @@ const ContentSection = () => {
           </div>
         </div>
       </SwiperSlide>
-    </Swiper>
+    </StyledSwiper>
   );
 };
 
