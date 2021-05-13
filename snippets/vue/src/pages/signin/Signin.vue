@@ -13,7 +13,14 @@
             <div class="title">Signin to:</div>
             <div class="subtitle">Accounting</div>
           </div>
-          <div class="form"></div>
+          <div class="form">
+            <app-input icon="account-box-outline" placeholder="abc@gmail.com" />
+            <app-input icon="key-outline" placeholder="password" type="password" />
+
+            <v-btn block>
+        Signin
+      </v-btn>
+          </div>
         </div>
       </div>
     </div>
