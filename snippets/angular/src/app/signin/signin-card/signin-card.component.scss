@@ -5,21 +5,13 @@
     @apply py-20;
   }
 
-  .bg-upper {
-    @apply absolute top-0 left-0 w-full h-full z-20 bg-cover bg-center;
-    mix-blend-mode: multiply;
-    background-image: url(/assets/images/signin/bg.png);
-  }
-
   .bg-below {
-    @apply absolute top-0 left-0 w-full h-full z-10 bg-cover bg-center;
-    mix-blend-mode: multiply;
-    background-image: url(/assets/images/signin/bg1.svg);
+    @apply absolute top-0 left-0 w-full h-full z-10 bg-cover bg-center mix-blend-multiply;
+    background-image: url(/assets/images/signin/bg2.png);
   }
 
   .bg-color-overlay {
-    @apply absolute top-0 left-0 w-full h-full bg-primary opacity-5 z-30;
-    mix-blend-mode: multiply;
+    @apply absolute top-0 left-0 w-full h-full bg-primary opacity-5 z-30 mix-blend-multiply;
   }
 
   .page-body {
@@ -58,8 +50,7 @@
   @apply mb-8 bg-surface;
 
   .logo-img {
-    @apply mx-auto h-20 w-auto mb-2 opacity-75;
-    mix-blend-mode: difference;
+    @apply mx-auto h-20 w-auto mb-2 opacity-75 mix-blend-difference;
   }
 
   .title {

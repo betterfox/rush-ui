@@ -1,0 +1,53 @@
+* {
+  box-sizing: border-box;
+  outline: none !important;
+  font-family: "Rubik Regular", "Prompt Regular" !important;
+  @apply transition duration-100;
+
+  &:focus {
+    outline: none;
+  }
+
+  &::-webkit-scrollbar {
+    height: 5px;
+    width: 5px;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: #e9ecef;
+    border-radius: 5px;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: #adb5bd;
+    border-radius: 5px;
+  }
+
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: #343a40;
+    border-radius: 5px;
+  }
+
+  &::-webkit-input-placeholder,
+  &:-ms-input-placeholder,
+  &:-moz-placeholder,
+  &::-moz-placeholder {
+    font-family: "Rubik Regular", "Prompt Regular" !important;
+    @apply font-light;
+  }
+}
+
+html,
+body {
+  font-size: 14px;
+  font-family: "Rubik Regular", "Prompt Regular" !important;
+  @apply min-h-screen p-0 m-0;
+  @apply bg-background text-on-background;
+}
+
+#root {
+  @apply min-h-screen;
+}
