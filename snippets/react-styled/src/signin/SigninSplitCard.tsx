@@ -4,7 +4,6 @@ import tw from "twin.macro";
 import SigninForm from "./SigninForm";
 import SocialSigninButton from "./components/SocialSigninButton";
 import { RequestStatus } from "./enum/request.enum";
-import styles from "./SigninSplitCard.module.scss";
 import SeparateLineWithText from "./components/SeparateLineWithText";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Button } from "@material-ui/core";
@@ -273,88 +272,168 @@ const StyledSwiper = styled(AppSwiper)`
   --swiper-navigation-color: var(--background);
 `;
 
+const SliderItemBg = styled.div`
+  ${tw`w-full h-full absolute left-0 top-0 bg-cover backdrop-filter  backdrop-blur`}
+
+  &:before {
+    ${tw`absolute top-0 w-full h-full left-0 block z-0 opacity-50 bg-black`}
+    content: "";
+  }
+  &:after {
+    ${tw`absolute top-0 w-full h-full left-0 block z-0 opacity-50 bg-primary`}
+    content: "";
+  }
+`;
+
+const SliderItemContainer = styled.div`
+  ${tw`w-full h-full flex items-center z-40 relative`}
+`;
+const SliderItemBody = styled.div`
+  ${tw`p-8 px-16 text-center mx-auto
+  2xl:( p-12 px-20 )
+`}
+`;
+const SliderItemTitle = styled.div`
+  ${tw`text-2xl font-bold text-white  filter drop-shadow mb-2
+  lg:( text-4xl )
+  2xl:( text-5xl )`}
+`;
+const SliderItemSubTitle = styled.div`
+  ${tw`text-lg text-white leading-relaxed filter drop-shadow mb-16 text-center
+  lg:( text-xl )
+  2xl:( text-2xl )`}
+`;
+const SliderItemList = styled.div`
+  ${tw`mb-32`}
+`;
+const SliderItemListItem = styled.div`
+  ${tw`flex items-center mb-4`}
+`;
+const SliderItemIcon = styled.div`
+  ${tw`mr-6 text-4xl text-white`}
+`;
+const SliderItemText = styled.div`
+  ${tw`mr-6 text-xl text-white`}
+`;
+
+const Icon = styled.div`
+  ${tw`ml-6 text-2xl`}
+`;
+
+const StyledSliderPrimaryButton = styled(Button)`
+  ${tw`rounded-full relative text-white bg-transparent uppercase font-bold border-2 border-white border-solid py-6 flex items-center justify-center w-auto pl-8 h-8 shadow-none text-base mx-auto
+    xl:( pl-12 h-12 text-lg )
+`}
+
+  &:hover,
+  &:focus {
+    ${tw`bg-gray-100 text-gray-700 shadow-md`}
+  }
+
+  ${Icon}
+`;
+
 const ContentSection = () => {
   return (
     <StyledSwiper>
       <SwiperSlide>
-        <div
-          className={styles.sliderItemBg}
+        <SliderItemBg
           style={{
             backgroundImage: "url(/assets/images/signin/highlight-bg1.png)",
           }}
-        ></div>
+        />
 
-        <div className={styles.heroContentContainer}>
-          <div className={styles.inner}>
-            <div className={styles.title}>Rush Accounting</div>
-            <div className={styles.subtitle}>Accounting have more fun</div>
-            <ul className={styles.list}>
-              <li className={styles.item}>
-                <FiShoppingBag className={styles.icon} />
-                <div className={styles.listText}>
+        <SliderItemContainer>
+          <SliderItemBody>
+            <SliderItemTitle>Rush Accounting</SliderItemTitle>
+            <SliderItemSubTitle>Accounting have more fun</SliderItemSubTitle>
+            <SliderItemList>
+              <SliderItemListItem>
+                <SliderItemIcon>
+                  <FiShoppingBag />
+                </SliderItemIcon>
+                <SliderItemText>
                   perspiciatis unde omnis iste natus
-                </div>
-              </li>
-              <li className={styles.item}>
-                <FiTrendingUp className={styles.icon} />
-                <div className={styles.listText}>numquam eius modi tempora</div>
-              </li>
-              <li className={styles.item}>
-                <FiThumbsUp className={styles.icon} />
-                <div className={styles.listText}>Nam libero tempore</div>
-              </li>
-              <li className={styles.item}>
-                <FiTruck className={styles.icon} />
-                <div className={styles.listText}>cupidatat non proident</div>
-              </li>
-            </ul>
+                </SliderItemText>
+              </SliderItemListItem>
+              <SliderItemListItem>
+                <SliderItemIcon>
+                  <FiTrendingUp />
+                </SliderItemIcon>
+                <SliderItemText>numquam eius modi tempora</SliderItemText>
+              </SliderItemListItem>
+              <SliderItemListItem>
+                <SliderItemIcon>
+                  <FiThumbsUp />
+                </SliderItemIcon>
+                <SliderItemText>Nam libero tempore</SliderItemText>
+              </SliderItemListItem>
+              <SliderItemListItem>
+                <SliderItemIcon>
+                  <FiTruck />
+                </SliderItemIcon>
+                <SliderItemText>cupidatat non proident</SliderItemText>
+              </SliderItemListItem>
+            </SliderItemList>
 
-            <Button className={styles.button} variant="contained">
+            <StyledSliderPrimaryButton variant="contained">
               Create new account
-              <FiArrowRight className={styles.icon} />
-            </Button>
-          </div>
-        </div>
+              <Icon>
+                <FiArrowRight />
+              </Icon>
+            </StyledSliderPrimaryButton>
+          </SliderItemBody>
+        </SliderItemContainer>
       </SwiperSlide>
+      
       <SwiperSlide>
-        <div
-          className={styles.sliderItemBg}
+        <SliderItemBg
           style={{
-            backgroundImage: "url(/assets/images/signin/highlight-bg2.png)",
+            backgroundImage: "url(/assets/images/signin/highlight-bg1.png)",
           }}
-        ></div>
+        />
 
-        <div className={styles.heroContentContainer}>
-          <div className={styles.inner}>
-            <div className={styles.title}>Rush Accounting</div>
-            <div className={styles.subtitle}>Accounting have more fun</div>
-            <ul className={styles.list}>
-              <li className={styles.item}>
-                <FiShoppingBag className={styles.icon} />
-                <div className={styles.listText}>
+        <SliderItemContainer>
+          <SliderItemBody>
+            <SliderItemTitle>Rush Accounting</SliderItemTitle>
+            <SliderItemSubTitle>Accounting have more fun</SliderItemSubTitle>
+            <SliderItemList>
+              <SliderItemListItem>
+                <SliderItemIcon>
+                  <FiTrendingUp />
+                </SliderItemIcon>
+                <SliderItemText>numquam eius modi tempora</SliderItemText>
+              </SliderItemListItem>
+              <SliderItemListItem>
+                <SliderItemIcon>
+                  <FiShoppingBag />
+                </SliderItemIcon>
+                <SliderItemText>
                   perspiciatis unde omnis iste natus
-                </div>
-              </li>
-              <li className={styles.item}>
-                <FiTrendingUp className={styles.icon} />
-                <div className={styles.listText}>numquam eius modi tempora</div>
-              </li>
-              <li className={styles.item}>
-                <FiThumbsUp className={styles.icon} />
-                <div className={styles.listText}>Nam libero tempore</div>
-              </li>
-              <li className={styles.item}>
-                <FiTruck className={styles.icon} />
-                <div className={styles.listText}>cupidatat non proident</div>
-              </li>
-            </ul>
+                </SliderItemText>
+              </SliderItemListItem>
+              <SliderItemListItem>
+                <SliderItemIcon>
+                  <FiTruck />
+                </SliderItemIcon>
+                <SliderItemText>cupidatat non proident</SliderItemText>
+              </SliderItemListItem>
+              <SliderItemListItem>
+                <SliderItemIcon>
+                  <FiThumbsUp />
+                </SliderItemIcon>
+                <SliderItemText>Nam libero tempore</SliderItemText>
+              </SliderItemListItem>
+            </SliderItemList>
 
-            <Button className={styles.button} variant="contained">
+            <StyledSliderPrimaryButton variant="contained">
               Create new account
-              <FiArrowRight className={styles.icon} />
-            </Button>
-          </div>
-        </div>
+              <Icon>
+                <FiArrowRight />
+              </Icon>
+            </StyledSliderPrimaryButton>
+          </SliderItemBody>
+        </SliderItemContainer>
       </SwiperSlide>
     </StyledSwiper>
   );
