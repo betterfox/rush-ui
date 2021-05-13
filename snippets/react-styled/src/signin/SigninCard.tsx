@@ -58,7 +58,10 @@ const SigninPage = () => {
                 <PageSubTitle>Accounting</PageSubTitle>
               </PageTitleContainer>
               <AppFormContainer>
-                <SigninForm message="Sign up" onSubmit={onSubmit}></SigninForm>
+                <SigninForm
+                  formStatus={data.status}
+                  onSubmit={onSubmit}
+                ></SigninForm>
               </AppFormContainer>
 
               <SeparateLineWithText text="OR" />

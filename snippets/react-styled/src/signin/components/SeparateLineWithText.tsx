@@ -1,16 +1,21 @@
 import React from "react";
-import styles from './SeparateLineWithText.module.scss';
+import styled from "styled-components";
+import tw from 'twin.macro';
 
 interface SeparateLineWithTextProps {
-    text: string
+  text: string;
 }
 const SeparateLineWithText = ({ text }: SeparateLineWithTextProps) => {
-    return (
-        <div className={styles.container}>
-            <hr></hr>
-            <div className={styles.text}>{text}</div>
-        </div>
-    )
-}
+  return (
+    <Container>
+      <HR></HR>
+      <Text>{text}</Text>
+    </Container>
+  );
+};
 
-export default SeparateLineWithText
+const Container = styled.div`${tw`relative block mb-8 w-40 mx-auto`}`;
+const HR = styled.hr`${tw`border border-background`}`;
+const Text = styled.div`${tw`absolute top-1/2 left-1/2 bg-surface px-4 text-sm text-secondary transform -translate-x-2/4 -translate-y-2/4`}`;
+
+export default SeparateLineWithText;
