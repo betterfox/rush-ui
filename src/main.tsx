@@ -1,15 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import { StylesProvider } from '@material-ui/core/styles';
 
 ReactDOM.render(
   <React.StrictMode>
     <StylesProvider injectFirst>
-      <BrowserRouter>
+      <HashRouter>
         <App />
-      </BrowserRouter>
+      </HashRouter>
     </StylesProvider>
   </React.StrictMode>,
   document.getElementById("root")
