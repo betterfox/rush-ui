@@ -9,7 +9,7 @@ const SigninPage = () => {
       <ShowCaseSection title="Card Style" subtitle="With illustration background for any common login page / register page">
         <ShowCaseFrame reactCssModuleCode={signinCardCode} reactCssModuleStyle={signinCodeStyle}>
           <IframeResizer
-            src="http://localhost:3000/examples/signin"
+            src="/#/examples/signin"
             style={{ width: "1px", minWidth: "100%" }}
           />
         </ShowCaseFrame>
@@ -18,20 +18,20 @@ const SigninPage = () => {
       {/* <ShowCaseSection title="Split Screen" subtitle="Show content in one side with carousel style, your can swap a side you want">
         <ShowCaseFrame>
           <IframeResizer
-            src="http://localhost:3000/examples/signin/split-screen"
+            src="/#/examples/signin/split-screen"
             style={{ width: "1px", minWidth: "100%" }}
           />
         </ShowCaseFrame>
       </ShowCaseSection> */}
 
-      <ShowCaseSection title="Split Card" subtitle="Same as split screen plus card style">
+      {/* <ShowCaseSection title="Split Card" subtitle="Same as split screen plus card style">
         <ShowCaseFrame>
           <IframeResizer
-            src="http://localhost:3000/examples/signin/split-card"
+            src="/#/examples/signin/split-card"
             style={{ width: "1px", minWidth: "100%" }}
           />
         </ShowCaseFrame>
-      </ShowCaseSection>
+      </ShowCaseSection> */}
     </ShowCaseContainer>
   );
 };

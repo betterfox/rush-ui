@@ -1,61 +1,65 @@
 .navbar {
+  height: var(--navbar-height);
+  z-index: 1200;
+  @apply left-0 w-full flex bg-background shadow-lg;
+  @apply transition-all duration-200;
+
+  .toolbar {
     height: var(--navbar-height);
-    z-index: 1200;
-    @apply left-0 w-full flex bg-background shadow-lg;
-    @apply transition-all duration-200;
+    @apply px-0 pt-0;
+  }
+
+  .logo {
+    @apply flex items-center space-x-2 text-2xl font-bold text-on-background filter drop-shadow-lg;
+    @apply transition-all duration-300;
+
+    .postfix {
+      @apply px-1 border-4 rounded-lg font-bold border-on-background filter drop-shadow-lg;
+    }
+  }
+
+  &.isTop {
+    height: var(--navbar-topmost-height);
+    @apply bg-transparent shadow-none;
 
     .toolbar {
-        height: var(--navbar-height);
-        @apply px-0 pt-0;
+      height: var(--navbar-topmost-height);
     }
 
     .logo {
-        @apply flex items-center space-x-2 text-2xl text-on-background filter drop-shadow-lg;
-        @apply transition-all duration-300;
+      @apply text-4xl;
+
+      .postfix {
+        @apply border-4;
+      }
+    }
+
+    &.isHeroSection {
+      .logo {
+        @apply text-white;
 
         .postfix {
-            @apply px-1 border-4 rounded-lg font-bold border-on-background filter drop-shadow-lg;
+          @apply border-white;
         }
+      }
     }
-
-    &.isTop {
-        height: var(--navbar-topmost-height);
-        @apply bg-transparent shadow-none;
-
-        .toolbar {
-            height: var(--navbar-topmost-height);
-        }
-
-        .logo {
-            @apply text-4xl;
-            
-            .postfix {
-                @apply border-4;
-            }
-        }
-
-        &.isHeroSection {
-            .logo {
-                @apply text-white;
-        
-                .postfix {
-                    @apply border-white;
-                }
-            }
-        }
-    }
+  }
 }
 
 .leftSection {
-    @apply w-1/3;
+  @apply w-1/3  flex items-center justify-end space-x-8;
 }
 .rightSection {
-    @apply w-1/3 flex items-center justify-end;
+  @apply w-1/3 flex items-center justify-end space-x-8;
 }
 .centerSection {
-    @apply w-1/3 flex items-center justify-center;
+  @apply w-1/3 flex items-center justify-center space-x-8;
 }
 
 .appContainer {
-    @apply container mx-auto px-8;
+  @apply container mx-auto px-8;
+}
+
+.githubLink {
+    @apply text-on-background text-xl filter drop-shadow-lg;
 }

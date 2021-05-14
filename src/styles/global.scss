@@ -45,18 +45,10 @@ body {
   @apply bg-background text-on-background;
 }
 
-html {
-  // border: 1px solid #FF0000;
-}
-
-body {
-  // border: 1px solid #FF0000;
-}
-
 #root {
   @apply min-h-screen;
 }
 
 .app-container {
-  @apply container mx-auto px-8;
+  @apply container mx-auto px-8 pb-20;
 }

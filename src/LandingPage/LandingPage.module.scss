@@ -3,17 +3,34 @@
 
   .section {
     .heading {
-      @apply border-b border-on-background mb-4 py-4 mt-4;
+      @apply border-b border-outline mb-4 py-4 mt-4;
 
       .title {
-        @apply text-2xl font-bold mb-1 text-on-background;
+        @apply text-3xl font-bold mb-1 text-on-background;
       }
       .subtitle {
-        @apply text-on-background;
+        @apply text-on-background opacity-75;
       }
+    }
+
+    .body {
+      @apply grid grid-cols-4;
     }
   }
 }
 
-.blog {
+.sectionItem {
+  @apply bg-surface rounded shadow p-1;
+
+  .sectionItemImage {
+    @apply w-full h-auto rounded overflow-hidden;
+  }
+
+  .sectionItemTitle {
+    @apply px-3 py-2 text-lg cursor-pointer;
+  }
+  
+  &:hover {
+    @apply bg-outline;
+  }
 }

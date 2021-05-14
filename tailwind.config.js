@@ -20,7 +20,8 @@ module.exports = {
         [`warning`]: "var(--warning)",
         [`on-warning`]: "var(--on-warning)", 
         [`error`]: "var(--error)",
-        [`on-error`]: "var(--on-error)"
+        [`on-error`]: "var(--on-error)",
+        [`indigo`]: "var(--indigo)"
       }
     },
   },

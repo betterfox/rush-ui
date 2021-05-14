@@ -1,11 +1,11 @@
 import React, { ReactNode } from "react";
-import { Link as RouterLink } from "react-router-dom";
+import { Link, Link as RouterLink } from "react-router-dom";
 import { AppBar, Toolbar } from "@material-ui/core";
 import useScrollPosition from '@react-hook/window-scroll'
-import AppSearchBox from "@/components/AppSearchBox";
 import NightModeToggle from "@/components/Button/NightModeToggle";
 import styles from "./Navbar.module.scss";
 import clsx from "clsx";
+import { FiGithub } from "react-icons/fi";
 
 interface TopBarProps {
     onMobileNavOpen?: () => void;
@@ -32,6 +32,7 @@ const Navbar = ({ onMobileNavOpen, size = "normal", hasHeroSection, ...rest }: T
                         <AppLogo />
                     </CenterSection>
                     <RightSection>
+                        <GithubLink></GithubLink>
                         <NightModeToggle />
                     </RightSection>
                 </Toolbar>
@@ -40,12 +41,21 @@ const Navbar = ({ onMobileNavOpen, size = "normal", hasHeroSection, ...rest }: T
     );
 };
 
+const GithubLink = () => {
+    return (
+        <a href="https://github.com/abuglife/rush-ui" className={styles.githubLink}>
+            <FiGithub />
+        </a>
+    );
+};
+
+
 const AppLogo = () => {
     return (
-        <div className={styles.logo}>
+        <Link className={styles.logo} to="/">
             <div className={styles.name}>Rush</div>
             <div className={styles.postfix}>UI</div>
-        </div>
+        </Link>
     );
 };
 

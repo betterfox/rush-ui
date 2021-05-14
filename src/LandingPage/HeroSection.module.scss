@@ -21,10 +21,10 @@
     padding-top: calc(var(--navbar-topmost-height) + 10rem);
 
     .title {
-      @apply text-5xl font-bold text-white mb-2 filter drop-shadow-lg;
+      @apply text-5xl text-center font-bold text-white mb-2 filter drop-shadow-lg;
     }
     .subtitle {
-      @apply text-6xl font-bold text-primary filter drop-shadow-lg;
+      @apply text-6xl text-center font-bold text-indigo filter drop-shadow-lg;
     }
   }
 }
@@ -39,6 +39,10 @@
   }
   .item2 {
     @apply transform -translate-y-8;
+  }
+  
+  .item3 {
+    @apply w-full;
   }
 
   .item {
