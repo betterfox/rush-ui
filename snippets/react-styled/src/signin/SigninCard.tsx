@@ -36,13 +36,14 @@ const SigninPage = () => {
         status: RequestStatus.Loading,
       });
       setTimeout(() => {
+        // Http Request
         setData({
           response: null,
           error: "Username or password is incorrect.",
           errorFields: null,
           status: RequestStatus.Error,
         });
-      }, 3000);
+      }, 2000);
     } catch (error) {
       setData({
         response: null,

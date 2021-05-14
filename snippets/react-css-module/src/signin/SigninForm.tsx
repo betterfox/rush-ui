@@ -13,20 +13,18 @@ interface FormValues {
 }
 
 interface OtherProps {
-  message?: string;
-  status?: RequestStatus;
+  formStatus?: RequestStatus;
   onSubmit?: Function
 }
 
 interface MyFormProps {
   initialEmail?: string;
-  message?: string;
-  status?: RequestStatus;
+  formStatus?: RequestStatus;
   onSubmit?: Function
 }
 
 const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
-  const { touched, errors, isSubmitting, message, status } = props;
+  const { touched, errors, isSubmitting, formStatus } = props;
   return (
     <Form onSubmit={props.handleSubmit}>
       <div className={styles.formContainer}>
@@ -53,7 +51,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
       </div>
       <AppButtonLoading
         text="Sign In"
-        isLoading={status === RequestStatus.Loading}
+        isLoading={formStatus === RequestStatus.Loading}
         type="submit"
       />
     </Form>

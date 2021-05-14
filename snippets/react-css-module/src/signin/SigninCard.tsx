@@ -2,7 +2,6 @@ import React, { ReactNode, useState } from "react";
 import SigninForm from "./SigninForm";
 import SocialSigninButton from "./components/SocialSigninButton";
 import { Helmet } from "react-helmet";
-import { Alert } from "@material-ui/lab";
 import SeparateLineWithText from "./components/SeparateLineWithText";
 import styles from "./SigninCard.module.scss";
 import { RequestStatus } from "./enum/request.enum";
@@ -11,6 +10,12 @@ interface SigninFormDto {
   email: string;
   password: string;
 }
+interface FormRequestState {
+  response: any | null;
+  error: string | null;
+  errorFields: any | null;
+  status: RequestStatus;
+}
 
 const SigninPage = () => {
   const [data, setData] = useState({
@@ -18,7 +23,7 @@ const SigninPage = () => {
     error: null,
     errorFields: null,
     status: RequestStatus.Nop,
-  });
+  } as FormRequestState);
 
   const onSubmit = async (data: SigninFormDto) => {
     try {
@@ -30,6 +35,12 @@ const SigninPage = () => {
       });
       setTimeout(() => {
         // Http Request
+        setData({
+          response: null,
+          error: "Username or password is incorrect.",
+          errorFields: null,
+          status: RequestStatus.Error,
+        });
       }, 2000);
     } catch (error) {
       setData({
@@ -52,12 +63,11 @@ const SigninPage = () => {
           <AppLogo />
           <PageTitle />
           <AppFormContainer>
-            {data.error && (
-              <Alert severity="error" className={styles.errorAlert}>
-                {data.error}
-              </Alert>
-            )}
-            <SigninForm message="Sign up" onSubmit={onSubmit}></SigninForm>
+            {data.error && <Alert>{data.error}</Alert>}
+            <SigninForm
+              formStatus={data.status}
+              onSubmit={onSubmit}
+            ></SigninForm>
           </AppFormContainer>
 
           <SeparateLineWithText text="OR" />
@@ -69,6 +79,14 @@ const SigninPage = () => {
   );
 };
 
+interface AlertProps {
+  children: ReactNode;
+}
+
+const Alert = ({ children }: AlertProps) => {
+  return <div className={styles.alert}>{children}</div>;
+};
+
 interface AppFormContainerProps {
   children: ReactNode;
 }
@@ -78,16 +96,18 @@ const AppFormContainer = ({ children }: AppFormContainerProps) => {
 };
 
 const Footer = () => {
-  return <div className={styles.footer}>
-    <div className={styles.footerLinkContainer}>
-      <div className={styles.link}>Privacy Policy</div>
-      <div className={styles.dot}>•</div>
-      <div className={styles.link}>User Notice</div>
+  return (
+    <div className={styles.footer}>
+      <div className={styles.footerLinkContainer}>
+        <div className={styles.link}>Privacy Policy</div>
+        <div className={styles.dot}>•</div>
+        <div className={styles.link}>User Notice</div>
+      </div>
+      <div className={styles.copyRight}>
+        @ 2021 ABugLife Studio, Inc. All rights reserved
+      </div>
     </div>
-    <div className={styles.copyRight}>
-      @ 2021 ABugLife Studio, Inc. All rights reserved
-    </div>
-  </div>;
+  );
 };
 
 const PageTitle = () => {
