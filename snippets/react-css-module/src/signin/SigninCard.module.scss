@@ -70,10 +70,6 @@
   @apply mb-10;
 }
 
-.errorAlert {
-  @apply mb-2;
-}
-
 .footer {
   @apply flex flex-col items-center justify-center w-full px-4 py-4 sticky;
   @screen md {
