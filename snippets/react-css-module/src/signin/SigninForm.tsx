@@ -29,33 +29,33 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
   const { touched, errors, isSubmitting, message, status } = props;
   return (
     <Form onSubmit={props.handleSubmit}>
-        <div className={styles.formContainer}>
-          <FormInput
-            label="Email"
-            prependIcon={<FiUser />}
-            name="email"
-            placeholder="Create Account"
-            formik={props}
-          />
-          <FormInput
-            label="Password"
-            prependIcon={<FiKey />}
-            name="password"
-            type="password"
-            placeholder="Password"
-            formik={props}
-          />
-        </div>
-
-        <div className={styles.additionalContainer}>
-          <a className={styles.link} href="/forgot-password">Forgot Password?</a>
-          <a className={styles.link} href="/register">Create Account</a>
-        </div>
-        <AppButtonLoading
-          text="Sign In"
-          isLoading={status === RequestStatus.Loading}
-          type="submit"
+      <div className={styles.formContainer}>
+        <FormInput
+          label="Email"
+          prependIcon={<FiUser />}
+          name="email"
+          placeholder="Create Account"
+          formik={props}
         />
+        <FormInput
+          label="Password"
+          prependIcon={<FiKey />}
+          name="password"
+          type="password"
+          placeholder="Password"
+          formik={props}
+        />
+      </div>
+
+      <div className={styles.additionalContainer}>
+        <a className={styles.link} href="/forgot-password">Forgot Password?</a>
+        <a className={styles.link} href="/register">Create Account</a>
+      </div>
+      <AppButtonLoading
+        text="Sign In"
+        isLoading={status === RequestStatus.Loading}
+        type="submit"
+      />
     </Form>
   );
 };

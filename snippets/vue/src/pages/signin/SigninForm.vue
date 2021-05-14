@@ -13,6 +13,11 @@
         type="password"
       />
 
+        <div class="additional-container">
+          <a class="link" href="/forgot-password">Forgot Password?</a>
+          <a class="link" href="/register">Create Account</a>
+        </div>
+
       <app-loading-button type="submit" text="Signin" />
     </div>
   </Form>
@@ -49,4 +54,17 @@ export default {
 .form {
   @apply mb-10;
 }
+
+.additional-container {
+  @apply flex items-center justify-between mb-6 py-0;
+
+  .link {
+    @apply text-sm text-on-surface opacity-50;
+
+    &:hover {
+      @apply opacity-100;
+    }
+  }
+}
+
 </style>
