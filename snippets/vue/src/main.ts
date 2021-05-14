@@ -11,6 +11,9 @@ import "./styles/tailwind.scss";
 import "./styles/global.scss";
 
 import AppInput from "./components/form/Input.vue";
+import SocialSigninButton from "./components/button/SocialSigninButton.vue";
+import SeparateLineWithText from "./components/button/SeparateLineWithText.vue";
+import AppLoadingButton from "./components/button/AppLoadingButton.vue";
 
 const app = createApp(App);
 app.use(vuetify);
@@ -19,5 +22,8 @@ app.use(mdiVue, {
   icons: mdijs,
 });
 app.component("app-input", AppInput);
+app.component("app-loading-button", AppLoadingButton);
+app.component("social-signin-button", SocialSigninButton);
+app.component("separate-line-with-text", SeparateLineWithText);
 
 app.mount("#app");
