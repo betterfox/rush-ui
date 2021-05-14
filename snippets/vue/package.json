@@ -14,9 +14,11 @@
     "feather-icons": "^4.28.0",
     "mdi-vue": "^3.0.7",
     "roboto-fontface": "*",
+    "vee-validate": "^4.3.6",
     "vue": "^3.0.11",
     "vue-router": "^4.0.8",
-    "vuetify": "^3.0.0-alpha.0"
+    "vuetify": "^3.0.0-alpha.0",
+    "yup": "^0.32.9"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^1.2.2",

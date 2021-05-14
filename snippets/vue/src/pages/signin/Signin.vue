@@ -17,19 +17,7 @@
               <div class="title">Signin to:</div>
               <div class="subtitle">Accounting</div>
             </div>
-            <div class="form">
-              <app-input
-                icon="account-box-outline"
-                placeholder="abc@gmail.com"
-              />
-              <app-input
-                icon="key-outline"
-                placeholder="password"
-                type="password"
-              />
-
-              <app-loading-button text="Signin" />
-            </div>
+            <signin-form />
 
             <separate-line-with-text text="OR" />
 
@@ -68,6 +56,16 @@
     </div>
   </div>
 </template>
+
+<script lang="ts">
+import SigninForm from './SigninForm.vue';
+
+export default {
+  components: {
+    SigninForm
+  }
+}
+</script>
 
 <style lang="scss" scoped>
 .page {
@@ -138,10 +136,6 @@
   }
 }
 
-.form {
-  @apply mb-10;
-}
-
 .footer {
   @apply flex flex-col items-center justify-center w-full px-4 py-4 sticky;
   @screen md {
@@ -177,6 +171,4 @@
     }
   }
 }
-
-
 </style>
