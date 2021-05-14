@@ -21,7 +21,6 @@
 <script lang="ts">
 import { Form } from "vee-validate";
 import * as Yup from "yup";
-import { setLocale } from 'yup';
 
 export default {
   props: {},

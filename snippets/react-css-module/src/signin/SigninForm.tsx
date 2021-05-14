@@ -1,5 +1,6 @@
 import React from "react";
 import { withFormik, FormikProps, FormikErrors, Form, FormikBag } from "formik";
+import * as Yup from 'yup';
 import FormInput from "./components/FormInput";
 import AppButtonLoading from "./components/AppLoadingButton";
 import { FiKey, FiUser } from "react-icons/fi";
@@ -59,6 +60,11 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
   );
 };
 
+const SigninSchema = Yup.object().shape({
+  email: Yup.string().required(),
+  password: Yup.string().required(),
+});
+
 const SigninForm = withFormik<MyFormProps, FormValues>({
   mapPropsToValues: (props) => {
     return {
@@ -67,16 +73,7 @@ const SigninForm = withFormik<MyFormProps, FormValues>({
     };
   },
 
-  validate: (values: FormValues) => {
-    let errors: FormikErrors<FormValues> = {};
-    if (!values.email) {
-      errors.email = "Required";
-    }
-    if (!values.password) {
-      errors.password = "Required";
-    }
-    return errors;
-  },
+  validationSchema: SigninSchema,
 
   handleSubmit: (values, { props }: FormikBag<any, FormValues>) => {
     props.onSubmit(values)

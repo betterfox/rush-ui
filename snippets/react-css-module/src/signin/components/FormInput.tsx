@@ -36,25 +36,27 @@ function FormInput({
     (Boolean(formik?.errors ? formik?.errors[name] : null) as any);
   const [isFocus, setIsFocus] = useState(false)
 
-  const inputClasses = clsx(styles.formInput, { 
+  const inputClasses = clsx(styles.formInput, {
     [styles.isError]: isError,
     [styles.isFocus]: isFocus
   })
 
   return (
-    <div className={inputClasses}>
-      {prependIcon && <div className={styles.icon}>{prependIcon}</div>}
-      <InputBase
-        name={name}
-        placeholder={placeholder}
-        className={styles.input}
-        type={type}
-        value={formik?.values ? formik?.values[name] : null}
-        onChange={formik?.handleChange}
-        onFocus={() => { setIsFocus(true)}}
-        onBlur={() => { setIsFocus(false)}}
-        error={isError}
-      />
+    <div className={styles.container}>
+      <div className={inputClasses}>
+        {prependIcon && <div className={styles.icon}>{prependIcon}</div>}
+        <InputBase
+          name={name}
+          placeholder={placeholder}
+          className={styles.input}
+          type={type}
+          value={formik?.values ? formik?.values[name] : null}
+          onChange={formik?.handleChange}
+          onFocus={() => { setIsFocus(true) }}
+          onBlur={() => { setIsFocus(false) }}
+          error={isError}
+        />
+      </div>
       {(formik?.touched ? formik?.touched[name] : null) &&
         (formik?.errors ? formik?.errors[name] : null) ? (
         <div className={styles.hint}>{formik?.errors[name]}</div>
