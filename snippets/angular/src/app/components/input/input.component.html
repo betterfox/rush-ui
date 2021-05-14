@@ -1,12 +1,12 @@
-<div class="form-input">
-  <div *ngIf="icon" class="icon">
-    <fa-icon [icon]="icon"></fa-icon>
+<div class="container">
+  <div class="form-input" [class.is-error]="isError" [class.is-focus]="isFocus">
+    <div *ngIf="icon" class="icon">
+      <mat-icon>{{icon}}</mat-icon>
+    </div>
+    <input [formControl]="form" class="input" (keydown.Space)="$event.stopImmediatePropagation();" [type]="_type"
+      [placeholder]="placeholder || label" [disabled]="disabled" [name]="name" (focus)="onFocus()" (blur)="onBlur()">
   </div>
-  <input [formControl]="form"
-    class="input"
-    (keydown.Space)="$event.stopImmediatePropagation();"
-    [type]="_type"
-    [placeholder]="placeholder || label"
-    [disabled]="disabled"
-    [name]="name">
+  <div *ngIf="isError" class="hint">
+    <ng-container *ngIf="form?.errors?.required">{{name}} is required</ng-container>
+  </div>
 </div>

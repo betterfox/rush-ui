@@ -1,8 +1,11 @@
 * {
   box-sizing: border-box;
   outline: none !important;
-  font-family: "Rubik Regular", "Prompt Regular" !important;
   @apply transition duration-100;
+
+  &:not(.material-icons) {
+    font-family: "Rubik Regular", "Prompt Regular" !important;
+  }
 
   &:focus {
     outline: none;

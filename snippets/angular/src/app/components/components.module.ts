@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 import { InputComponent } from './input/input.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -12,6 +13,7 @@ import { ButtonSocialSigninComponent } from './button-social-signin/button-socia
   imports: [
     FormsModule,
     ReactiveFormsModule,
+    MatIconModule,
     CommonModule,
     FontAwesomeModule,
     MatButtonModule

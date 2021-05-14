@@ -1,5 +1,5 @@
 .form-input {
-  @apply relative mb-2 rounded bg-input border border-outline shadow-sm flex items-center p-0;
+  @apply relative rounded bg-input border border-outline shadow-sm flex items-center p-0;
   height: var(--input-height);
 
   .input {
@@ -10,19 +10,20 @@
     }
   }
 
-  .hint {
-    @apply absolute right-0 top-0 h-full flex items-center text-xs text-on-input px-2;
-  }
-
   .icon {
-    @apply text-on-input text-lg border-surface opacity-50 w-8 text-right;
+    @apply text-on-input text-lg border-surface opacity-50 w-8 flex items-center justify-end transform translate-x-1;
   }
 
-  &.isError {
+  &.is-error {
     @apply border-error;
-
-    .hint {
-      @apply text-error;
-    }
   }
+  &.is-focus {
+    @apply shadow-lg border-primary;
+  }
+}
+.container {
+  @apply mb-2;
+}
+.hint {
+  @apply text-error text-sm;
 }

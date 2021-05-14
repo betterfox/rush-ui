@@ -1,10 +1,10 @@
 <form class="app-login" [formGroup]="form" (submit)="onSubmit()">
   <div class="form-container">
     <form-input placeholder="abc@gmail.com" [required]="true" formControlName="username" type="text" name="username"
-      [required]="true" [touched]="form.touched" [icon]="['far', 'user']">
+      [required]="true" [touched]="form.touched" icon="person_outline">
     </form-input>
     <form-input placeholder="Password" [required]="true" formControlName="password" type="password" name="password"
-      [required]="true" [touched]="form.touched" [icon]="['fas', 'key']">
+      [required]="true" [touched]="form.touched" icon="lock_open">
     </form-input>
   </div>
   <div class="additional-container">
