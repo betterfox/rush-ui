@@ -18,7 +18,7 @@ export default {
   @apply relative block mb-8 w-40 mx-auto;
 
   hr {
-    @apply border border-background;
+    @apply border border-outline;
   }
 
   .text {

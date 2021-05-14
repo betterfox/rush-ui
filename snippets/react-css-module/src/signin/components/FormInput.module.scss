@@ -3,7 +3,7 @@
   height: var(--input-height);
 
   .input {
-    @apply font-light text-on-input px-3 py-0 w-full;
+    @apply font-light text-on-input px-3 py-0 w-full bg-transparent;
   }
 
   .icon {

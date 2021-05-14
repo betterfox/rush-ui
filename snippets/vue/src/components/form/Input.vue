@@ -73,7 +73,7 @@ export default {
   height: var(--input-height);
 
   .input {
-    @apply font-light text-on-input px-3 py-0 w-full text-base;
+    @apply font-light text-on-input px-3 py-0 w-full text-base bg-transparent;
 
     &:focus {
       @apply border-none;
