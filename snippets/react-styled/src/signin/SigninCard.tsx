@@ -179,6 +179,7 @@ const PageContainer = ({ children }: PageContainerProps) => {
 const Page = styled.div`
   ${tw`h-full min-h-screen relative flex items-center justify-center p-0 bg-background`}
 `;
+
 const PageBgUpper = styled.div`
   ${tw`absolute top-0 left-0 w-full h-full z-20 bg-cover bg-center mix-blend-multiply`}
   background-image: url(/assets/images/signin/bg2.png);
@@ -187,6 +188,7 @@ const PageBgUpper = styled.div`
 const PageBgOverlay = styled.div`
   ${tw`absolute top-0 left-0 w-full h-full bg-primary opacity-5 z-30 mix-blend-multiply`}
 `;
+
 const PageBody = styled.div`
   ${tw`max-w-full w-full relative z-40 flex flex-col items-center min-h-screen px-4
   `}

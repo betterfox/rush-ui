@@ -1,7 +1,7 @@
 import React from 'react';
 import LandingPage from './LandingPage/LandingPage';
 import ExampleSigninCardPage from './examples/signin/SigninCard';
-import ExampleSigninSplitScreenPage from './examples/signin/SigninSplitScreen';
+// import ExampleSigninSplitScreenPage from './examples/signin/SigninSplitScreen';
 import ExampleSigninSplitCardPage from './examples/signin/SigninSplitCard';
 import ShowCaseSignin from './pages/Form/Signin';
 import EmptyLayout from './layouts/EmptyLayout';
@@ -18,10 +18,10 @@ const routes = [
         path: '/signin',
         element: <ExampleSigninCardPage />
       },
-      {
-        path: '/signin/split-screen',
-        element: <ExampleSigninSplitScreenPage />
-      },
+      // {
+      //   path: '/signin/split-screen',
+      //   element: <ExampleSigninSplitScreenPage />
+      // },
       {
         path: '/signin/split-card',
         element: <ExampleSigninSplitCardPage />

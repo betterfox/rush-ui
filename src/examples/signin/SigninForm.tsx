@@ -4,7 +4,8 @@ import FormInput from "./components/FormInput";
 import AppButtonLoading from "./components/AppLoadingButton";
 import { FiKey, FiUser } from "react-icons/fi";
 import { RequestStatus } from "./enum/request.enum";
-import styles from './SigninForm.module.scss';
+import styled from 'styled-components';
+import tw from 'twin.macro';
 
 interface FormValues {
   email: string;
@@ -12,58 +13,74 @@ interface FormValues {
 }
 
 interface OtherProps {
-  message?: string;
-  status?: RequestStatus;
+  formStatus?: RequestStatus;
   onSubmit?: Function
 }
 
-interface MyFormProps {
+interface SigninFormProps {
   initialEmail?: string;
-  message?: string;
-  status?: RequestStatus;
+  formStatus?: RequestStatus;
   onSubmit?: Function
 }
 
 const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
-  const { touched, errors, isSubmitting, message, status } = props;
+  const { touched, errors, isSubmitting, formStatus } = props;
   return (
     <Form onSubmit={props.handleSubmit}>
-        <div className={styles.formContainer}>
-          <FormInput
-            label="Email"
-            prependIcon={<FiUser />}
-            name="email"
-            placeholder="Create Account"
-            formik={props}
-          />
-          <FormInput
-            label="Password"
-            prependIcon={<FiKey />}
-            name="password"
-            type="password"
-            placeholder="Password"
-            formik={props}
-          />
-        </div>
-
-        <div className={styles.additionalContainer}>
-          <a className={styles.link} href="/forgot-password">Forgot Password?</a>
-          <a className={styles.link} href="/register">Create Account</a>
-        </div>
+      <FormBody>
+        <FormInput
+          label="Email"
+          prependIcon={<FiUser />}
+          name="email"
+          placeholder="Create Account"
+          formik={props}
+        />
+        <FormInput
+          label="Password"
+          prependIcon={<FiKey />}
+          name="password"
+          type="password"
+          placeholder="Password"
+          formik={props}
+        />
+      </FormBody>
+      <FormLinkContainer>
+        <FormLink href="/forgot-password">Forgot Password?</FormLink>
+        <FormLink href="/register">Create Account</FormLink>
+      </FormLinkContainer>
+      <FormFooter>
         <AppButtonLoading
           text="Sign In"
-          isLoading={status === RequestStatus.Loading}
+          isLoading={formStatus === RequestStatus.Loading}
           type="submit"
         />
+      </FormFooter>
     </Form>
   );
 };
 
-const SigninForm = withFormik<MyFormProps, FormValues>({
+const FormBody = styled.div`
+  ${tw`mb-3`}
+`
+
+const FormFooter = styled.div`
+`
+const FormLinkContainer = styled.div`
+  ${tw`flex items-center justify-between mb-6 py-0`}
+`
+
+const FormLink = styled.a`
+  ${tw`text-sm text-on-surface opacity-50`}
+  &:hover {
+    ${tw`opacity-100`}
+  }
+`
+
+const SigninForm = withFormik<SigninFormProps, FormValues>({
   mapPropsToValues: (props) => {
     return {
       email: props.initialEmail || "",
-      password: "",
+      password: ""
     };
   },
 

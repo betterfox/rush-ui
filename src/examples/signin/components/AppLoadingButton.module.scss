@@ -1,7 +1,0 @@
-.button {
-  @apply rounded relative text-on-primary bg-primary uppercase font-bold border-none py-3 flex items-center justify-center w-full h-12 shadow px-3 mb-2 text-sm;
-  &:hover,
-  &:focus {
-    @apply bg-primary text-on-primary shadow-lg;
-  }
-}

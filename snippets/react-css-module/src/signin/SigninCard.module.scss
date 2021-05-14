@@ -11,20 +11,11 @@
 }
 
 .page {
-  @apply h-full min-h-screen relative flex items-center justify-center p-0 bg-background py-0;
-
-  @screen md {
-    @apply py-20;
-  }
-
-  .bgUpper {
-    @apply absolute top-0 left-0 w-full h-full z-20 bg-cover bg-center mix-blend-multiply;
-    background-image: url(/assets/images/signin/bg.png);
-  }
+  @apply h-full min-h-screen relative flex items-center justify-center p-0 bg-background;
 
   .bgBelow {
     @apply absolute top-0 left-0 w-full h-full z-10 bg-cover bg-center mix-blend-multiply;
-    background-image: url(/assets/images/signin/bg1.svg);
+    background-image: url(/assets/images/signin/bg2.png);
   }
 
   .bgColorOverlay {
@@ -32,22 +23,25 @@
   }
 
   .pageBody {
-    @apply max-w-full w-full space-y-8 relative z-40 flex items-center;
-  
-    @screen md {
-      @apply max-w-md;
-    }
+    @apply max-w-full w-full relative z-40 flex flex-col items-center min-h-screen px-4;
+  }
+}
+
+.cardContainer {
+  @apply flex-1 flex items-center w-full max-w-md mx-auto pt-4;
+  @screen md {
+    @apply pt-8;
   }
 }
 
 .card {
-  @apply shadow-xl bg-surface py-20 px-6 z-40 rounded-lg w-full h-full flex flex-col items-center justify-center min-h-screen;
+  @apply shadow-xl bg-surface py-12 px-4 z-40 rounded-lg w-full h-full flex flex-col items-center justify-center  min-h-0 max-w-md;
 
   @screen md {
     @apply h-auto min-h-0;
   }
 
-  .cardInner {
+  .cardBody {
     @apply w-full max-w-xs;
   }
 }
@@ -73,9 +67,45 @@
 }
 
 .form {
-  @apply mb-10
+  @apply mb-10;
 }
 
 .errorAlert {
   @apply mb-2;
+}
+
+.footer {
+  @apply flex flex-col items-center justify-center w-full px-4 py-4 sticky;
+  @screen md {
+    @apply px-8 py-8;
+  }
+
+  .footerLinkContainer {
+    @apply flex items-center mb-1 space-x-4 text-sm;
+    @screen md {
+      @apply mb-4 text-base;
+    }
+
+    .link {
+      @apply text-on-background opacity-50 cursor-pointer text-sm;
+      @screen md {
+        @apply text-base;
+      }
+
+      &:hover {
+        @apply text-primary opacity-100;
+      }
+    }
+
+    .dot {
+      @apply opacity-50;
+    }
+  }
+
+  .copyRight {
+    @apply text-on-background opacity-25 text-center whitespace-nowrap text-sm;
+    @screen md {
+      @apply text-base;
+    }
+  }
 }

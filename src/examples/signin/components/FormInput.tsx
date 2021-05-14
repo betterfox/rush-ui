@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { InputBase } from "@material-ui/core";
 import { FormikProps } from "formik";
-import clsx from "clsx";
-import styles from './FormInput.module.scss';
+import styled from "styled-components";
+import tw from "twin.macro";
 
 type FormInputProps = {
   label?: string;
@@ -19,48 +19,71 @@ type FormInputProps = {
 };
 
 function FormInput({
-  label,
   placeholder,
   name,
   type,
-  required,
-  prefix,
   prependIcon,
-  disabled,
-  errors = [],
-  fieldKey,
   formik,
 }: FormInputProps) {
   const isError =
     (formik?.touched ? formik?.touched[name] : null) &&
     (Boolean(formik?.errors ? formik?.errors[name] : null) as any);
-  const [isFocus, setIsFocus] = useState(false)
-
-  const inputClasses = clsx(styles.formInput, { 
-    [styles.isError]: isError,
-    [styles.isFocus]: isFocus
-  })
+  const [isFocus, setIsFocus] = useState(false);
 
   return (
-    <div className={inputClasses}>
-      {prependIcon && <div className={styles.icon}>{prependIcon}</div>}
-      <InputBase
+    <InputContainer isError={isError} isFocus={isFocus}>
+      {prependIcon && <Icon>{prependIcon}</Icon>}
+      <StyledInput
         name={name}
         placeholder={placeholder}
-        className={styles.input}
         type={type}
         value={formik?.values ? formik?.values[name] : null}
         onChange={formik?.handleChange}
-        onFocus={() => { setIsFocus(true)}}
-        onBlur={() => { setIsFocus(false)}}
+        onFocus={() => {
+          if (!isFocus) {
+            setIsFocus(true);
+          }
+        }}
+        onBlur={() => {
+          if (isFocus) {
+            setIsFocus(false);
+          }
+        }}
         error={isError}
       />
       {(formik?.touched ? formik?.touched[name] : null) &&
         (formik?.errors ? formik?.errors[name] : null) ? (
-        <div className={styles.hint}>{formik?.errors[name]}</div>
+        <Hint>{formik?.errors[name]}</Hint>
       ) : null}
-    </div>
+    </InputContainer>
   );
 }
+
+const Hint = styled.div`
+  ${tw`absolute right-0 top-0 h-full flex items-center text-xs text-on-input px-2`}
+`;
+const Icon = styled.div`
+  ${tw`text-on-input pl-3 text-lg border-surface opacity-50`}
+`;
+
+const StyledInput = styled(InputBase)`
+  ${tw`font-light text-on-input px-3 py-0 w-full`}
+`;
+
+interface InputContainerProps {
+  isError?: boolean;
+  isFocus?: boolean;
+}
+const InputContainer = styled.div<InputContainerProps>`
+  ${tw`relative mb-2 rounded bg-input border border-outline shadow-sm flex items-center p-0`}
+  height: var(--input-height);
+
+  ${(props) => props.isFocus && tw`shadow-lg border-primary`}
+  ${(props) => props.isError && tw`border-error`}
+
+  ${Hint} {  
+    ${(props) => props.isError && tw`text-error`}
+  }
+`;
 
 export default FormInput;

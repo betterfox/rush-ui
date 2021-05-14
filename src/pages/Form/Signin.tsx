@@ -15,14 +15,14 @@ const SigninPage = () => {
         </ShowCaseFrame>
       </ShowCaseSection>
 
-      <ShowCaseSection title="Split Screen" subtitle="Show content in one side with carousel style, your can swap a side you want">
+      {/* <ShowCaseSection title="Split Screen" subtitle="Show content in one side with carousel style, your can swap a side you want">
         <ShowCaseFrame>
           <IframeResizer
             src="http://localhost:3000/examples/signin/split-screen"
             style={{ width: "1px", minWidth: "100%" }}
           />
         </ShowCaseFrame>
-      </ShowCaseSection>
+      </ShowCaseSection> */}
 
       <ShowCaseSection title="Split Card" subtitle="Same as split screen plus card style">
         <ShowCaseFrame>

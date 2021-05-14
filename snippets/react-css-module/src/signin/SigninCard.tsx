@@ -63,6 +63,7 @@ const SigninPage = () => {
           <SeparateLineWithText text="OR" />
           <SocialSignin />
         </CardContainer>
+        <Footer />
       </PageContainer>
     </>
   );
@@ -74,6 +75,19 @@ interface AppFormContainerProps {
 
 const AppFormContainer = ({ children }: AppFormContainerProps) => {
   return <div className={styles.form}>{children}</div>;
+};
+
+const Footer = () => {
+  return <div className={styles.footer}>
+    <div className={styles.footerLinkContainer}>
+      <div className={styles.link}>Privacy Policy</div>
+      <div className={styles.dot}>•</div>
+      <div className={styles.link}>User Notice</div>
+    </div>
+    <div className={styles.copyRight}>
+      @ 2021 ABugLife Studio, Inc. All rights reserved
+    </div>
+  </div>;
 };
 
 const PageTitle = () => {
@@ -104,7 +118,6 @@ const PageContainer = ({ children }: PageContainerProps) => {
   return (
     <div className={styles.page}>
       <div className={styles.bgBelow}></div>
-      <div className={styles.bgUpper}></div>
       <div className={styles.bgColorOverlay}></div>
       <div className={styles.pageBody}>{children}</div>
     </div>
@@ -116,8 +129,10 @@ interface CardContainerProps {
 }
 const CardContainer = ({ children }: CardContainerProps) => {
   return (
-    <div className={styles.card}>
-      <div className={styles.cardInner}>{children}</div>
+    <div className={styles.cardContainer}>
+      <div className={styles.card}>
+        <div className={styles.cardBody}>{children}</div>
+      </div>
     </div>
   );
 };

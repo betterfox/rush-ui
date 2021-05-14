@@ -2,18 +2,18 @@
   @apply mb-4 py-4 mt-4;
 
   .title {
-    @apply text-2xl font-bold mb-1;
+    @apply text-2xl font-bold mb-1 text-on-background;
   }
   .subtitle {
-    @apply text-gray-500;
+    @apply text-on-background opacity-50;
   }
 }
 
 .frameContainer {
-  @apply rounded-lg border border-gray-300 overflow-hidden bg-gray-200 p-2 mb-8;
+  @apply rounded-lg shadow border border-outline overflow-hidden bg-surface p-2 mb-8;
 
   .inner {
-    @apply rounded-lg border border-gray-300 overflow-hidden bg-white mx-auto;
+    @apply rounded-lg border border-outline overflow-hidden bg-surface mx-auto;
 
     &.isMobile {
       @apply max-w-lg;
@@ -42,14 +42,18 @@
     @apply flex items-center;
 
     .icon {
-      @apply text-2xl mr-1;
+      @apply text-2xl mr-1 text-on-surface;
     }
     .title {
-
+      @apply text-on-surface;
     }
 
     &.isActive {
-      @apply bg-green-500 text-white;
+      @apply bg-primary text-on-primary;
+
+      .icon, .title {
+        @apply text-on-primary;
+      }
     }
   }
 }
@@ -59,14 +63,18 @@
     @apply flex items-center;
 
     .icon {
-      @apply text-2xl mr-1;
+      @apply text-2xl mr-1 text-on-surface;
     }
     .title {
-
+      @apply text-on-surface;
     }
 
     &.isActive {
-      @apply bg-green-500 text-white;
+      @apply bg-primary text-on-primary;
+      
+      .icon, .title {
+        @apply text-on-primary;
+      }
     }
   }
 }
