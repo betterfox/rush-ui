@@ -14,7 +14,14 @@
             <div class="subtitle">Accounting</div>
           </div>
           <div class="form">
-            <app-signin-form (onFormSubmit)="onSubmit($event)">
+            <ng-container *ngIf="status === RequestStatus.Error">
+              <div class="alert">
+                {{error}}
+              </div>
+            </ng-container>
+            <app-signin-form 
+              [status]="status"
+              (onFormSubmit)="onSubmit($event)">
             </app-signin-form>
           </div>
 

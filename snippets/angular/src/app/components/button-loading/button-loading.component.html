@@ -1,6 +1,6 @@
 <button class="button" [type]="type" mat-button>
   <ng-container *ngIf="isLoading">
-    <fa-icon class="icon" [icon]="['fas', 'spinner']" [pulse]="true"></fa-icon>
+    <img class="loader" src="/assets/images/loader/three-dots.svg" />
   </ng-container>
   <ng-container *ngIf="!isLoading">
     <div class="text">{{text}}</div>

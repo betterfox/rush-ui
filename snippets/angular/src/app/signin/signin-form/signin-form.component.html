@@ -11,5 +11,5 @@
     <a class="link" href="/forgot-password">Forgot Password?</a>
     <a class="link" href="/register">Create Account</a>
   </div>
-  <app-button-loading type="submit" text="Sign In"></app-button-loading>
+  <app-button-loading [isLoading]="status == RequestStatus.Loading" type="submit" text="Sign In"></app-button-loading>
 </form>

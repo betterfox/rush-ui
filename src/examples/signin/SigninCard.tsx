@@ -4,7 +4,6 @@ import tw from "twin.macro";
 import SigninForm from "./SigninForm";
 import SocialSigninButton from "./components/SocialSigninButton";
 import { Helmet } from "react-helmet";
-import { Alert } from "@material-ui/lab";
 import SeparateLineWithText from "./components/SeparateLineWithText";
 import { RequestStatus } from "./enum/request.enum";
 
@@ -13,13 +12,20 @@ interface SigninFormDto {
   password: string;
 }
 
+interface FormRequestState {
+  response: any | null;
+  error: string | null;
+  errorFields: any | null;
+  status: RequestStatus;
+}
+
 const SigninPage = () => {
   const [data, setData] = useState({
     response: null,
     error: null,
     errorFields: null,
     status: RequestStatus.Nop,
-  });
+  } as FormRequestState);
 
   const onSubmit = async (data: SigninFormDto) => {
     try {
@@ -31,6 +37,12 @@ const SigninPage = () => {
       });
       setTimeout(() => {
         // Http Request
+        setData({
+          response: null,
+          error: "Username or password is incorrect.",
+          errorFields: null,
+          status: RequestStatus.Error,
+        });
       }, 2000);
     } catch (error) {
       setData({
@@ -58,6 +70,7 @@ const SigninPage = () => {
                 <PageSubTitle>Accounting</PageSubTitle>
               </PageTitleContainer>
               <AppFormContainer>
+                {data.error && <Alert>{data.error}</Alert>}
                 <SigninForm
                   formStatus={data.status}
                   onSubmit={onSubmit}
@@ -224,6 +237,10 @@ const FooterLink = styled.a`
 
 const FooterSeparateDot = styled.div`
   ${tw`opacity-50`}
+`;
+
+const Alert = styled.div`
+  ${tw`bg-error px-3 py-2 text-on-error rounded mb-3`}
 `;
 
 export default SigninPage;

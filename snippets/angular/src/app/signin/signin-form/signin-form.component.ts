@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup } from '@angular/forms'
+import { RequestStatus } from 'src/app/enum/request-status.enum';
 
 @Component({
   selector: 'app-signin-form',
@@ -9,8 +10,9 @@ import { FormBuilder, FormGroup } from '@angular/forms'
 })
 export class SigninFormComponent implements OnInit {
   @Input() error: string;
-  @Input() isLoading: boolean = false;
+  @Input() status: RequestStatus = null;
   @Output() onFormSubmit: EventEmitter<any> = new EventEmitter();
+  RequestStatus = RequestStatus;
 
   form: FormGroup;
 
