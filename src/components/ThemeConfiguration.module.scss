@@ -1,6 +1,7 @@
 .btnToggle {
-    @apply right-0 top-0 fixed z-50 bg-white rounded-none rounded-l-lg p-4 px-4 w-auto min-w-0 shadow-xl text-xl text-primary;
+    @apply right-0 top-0 fixed bg-white rounded-none rounded-l-lg p-4 px-4 w-auto min-w-0 shadow-xl text-xl text-primary;
     top: 20px;
+    z-index: 2050;
 }
 
 .listContainer {

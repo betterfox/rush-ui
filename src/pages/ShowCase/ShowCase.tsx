@@ -94,32 +94,24 @@ export const ShowCaseFrame = ({ children, reactCssModuleCode, reactCssModuleStyl
           </ButtonGroup>
         </div>
         <div className={styles.rightSection}>
-          <ButtonGroup className={styles.codeButtonContainer}>
-            <Button onClick={() => {
-              toggleCodeGroup(CodeGroup.ReactCssModule)
-            }} className={clsx(styles.button, { [styles.isActive]: codeGroup === CodeGroup.ReactCssModule })}>
-              <FaReact className={styles.icon} />
-              <div className={styles.title}> + CSS Modules</div>
-            </Button>
-            <Button onClick={() => {
-              toggleCodeGroup(CodeGroup.ReactStyledComponent)
-            }} className={clsx(styles.button, { [styles.isActive]: codeGroup === CodeGroup.ReactStyledComponent })}>
+          <div className={styles.codeButtonContainer}>
+            <a href="https://github.com/abuglife/rush-ui/tree/main/snippets/react-styled" className={clsx(styles.button, { [styles.isActive]: codeGroup === CodeGroup.ReactStyledComponent })}>
               <FaReact className={styles.icon} />
               <div className={styles.title}> + Styled Component</div>
-            </Button>
-            <Button onClick={() => {
-              toggleCodeGroup(CodeGroup.Vue)
-            }} className={clsx(styles.button, { [styles.isActive]: codeGroup === CodeGroup.Vue })}>
+            </a>
+            <a href="https://github.com/abuglife/rush-ui/tree/main/snippets/react-css-module" className={clsx(styles.button, { [styles.isActive]: codeGroup === CodeGroup.ReactCssModule })}>
+              <FaReact className={styles.icon} />
+              <div className={styles.title}> + CSS Modules</div>
+            </a>
+            <a href="https://github.com/abuglife/rush-ui/tree/main/snippets/vue" className={clsx(styles.button, { [styles.isActive]: codeGroup === CodeGroup.Vue })}>
               <FaVuejs className={styles.icon} />
               <div className={styles.title}> Vue</div>
-            </Button>
-            <Button onClick={() => {
-              toggleCodeGroup(CodeGroup.Angular)
-            }} className={clsx(styles.button, { [styles.isActive]: codeGroup === CodeGroup.Angular })}>
+            </a>
+            <a href="https://github.com/abuglife/rush-ui/tree/main/snippets/angular" className={clsx(styles.button, { [styles.isActive]: codeGroup === CodeGroup.Angular })}>
               <FaAngular className={styles.icon} />
               <div className={styles.title}> Angular</div>
-            </Button>
-          </ButtonGroup>
+            </a>
+          </div>
         </div>
       </div>
       <div className={clsx(styles.inner, {

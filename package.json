@@ -27,6 +27,7 @@
     "history": "^5.0.0",
     "iframe-resizer-react": "^1.1.0",
     "nanoid": "^3.1.22",
+    "query-string": "^7.0.0",
     "react": "^17.0.0",
     "react-code-blocks": "0.0.8",
     "react-dom": "^17.0.0",

@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 import ThemeConfiguration from '../components/ThemeConfiguration';
+import { useQuery } from "../utils/router";
 
 const EmptyLayout = () => {
+  const rawQuery = useQuery()
+
   return (
     <>
       <Outlet />
-      <ThemeConfiguration  />
+      { !rawQuery.iframe && <ThemeConfiguration  /> }
     </>
   );
 };

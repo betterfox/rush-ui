@@ -59,8 +59,9 @@
 }
 
 .codeButtonContainer {
+  @apply flex items-center border border-background rounded overflow-hidden;
   .button {
-    @apply flex items-center;
+    @apply px-3 py-2 flex items-center;
 
     .icon {
       @apply text-2xl mr-1 text-on-surface;
@@ -69,7 +70,7 @@
       @apply text-on-surface;
     }
 
-    &.isActive {
+    &:hover {
       @apply bg-primary text-on-primary;
       
       .icon, .title {
