@@ -1,6 +1,9 @@
 <template>
   <v-btn :type="type" class="button" color="">
-    <div class="label">{{text}}</div>
+    <div class="label" v-if="!isLoading">{{text}}</div>
+    <div class="loader" v-if="isLoading">
+      <img class="loader" src="/assets/images/loader/three-dots.svg" />
+    </div>
   </v-btn>
 </template>
 
@@ -42,5 +45,9 @@ export default {
   &:focus {
     @apply bg-primary text-on-primary shadow-md;
   }
+}
+
+.loader {
+  @apply w-auto h-3;
 }
 </style>

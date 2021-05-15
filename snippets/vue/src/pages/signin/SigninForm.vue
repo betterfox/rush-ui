@@ -13,12 +13,16 @@
         type="password"
       />
 
-        <div class="additional-container">
-          <a class="link" href="/forgot-password">Forgot Password?</a>
-          <a class="link" href="/register">Create Account</a>
-        </div>
+      <div class="additional-container">
+        <a class="link" href="/forgot-password">Forgot Password?</a>
+        <a class="link" href="/register">Create Account</a>
+      </div>
 
-      <app-loading-button type="submit" text="Signin" />
+      <app-loading-button
+        :isLoading="status === RequestStatus.Loading"
+        type="submit"
+        text="Signin"
+      />
     </div>
   </Form>
 </template>
@@ -26,17 +30,25 @@
 <script lang="ts">
 import { Form } from "vee-validate";
 import * as Yup from "yup";
+import { RequestStatus } from "@/enum/request-status.enum";
 
 export default {
-  props: {},
+  props: {
+    status: RequestStatus,
+  },
+  data() {
+    return {
+      RequestStatus,
+    };
+  },
+  emits: ["on-submit"],
   components: {
     Form,
   },
-  setup() {
+  setup(props, context) {
     function onSubmit(values: any) {
-      console.log(values)
+      context.emit("on-submit", values);
     }
-
     const schema = Yup.object().shape({
       email: Yup.string().required(),
       password: Yup.string().required(),
@@ -66,5 +78,4 @@ export default {
     }
   }
 }
-
 </style>

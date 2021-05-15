@@ -17,7 +17,10 @@
               <div class="title">Signin to:</div>
               <div class="subtitle">Accounting</div>
             </div>
-            <signin-form />
+            <div class="alert" v-if="status === RequestStatus.Error">
+              {{ error }}
+            </div>
+            <signin-form :status="status" @on-submit="onSubmit"/>
 
             <separate-line-with-text text="OR" />
 
@@ -58,13 +61,39 @@
 </template>
 
 <script lang="ts">
-import SigninForm from './SigninForm.vue';
+import SigninForm from "./SigninForm.vue";
+import { RequestStatus } from '@/enum/request-status.enum';
+
+interface SigninDto {
+  email: string,
+  password: string
+}
 
 export default {
   components: {
-    SigninForm
+    SigninForm,
+  },
+  data() {
+    return {
+      RequestStatus,
+      status: RequestStatus.Nop,
+      error: null
+     }
+  },
+  methods: {
+    onSubmit: async function (dto: SigninDto) {
+      try {
+        this.status = RequestStatus.Loading;
+        setTimeout(() => {
+          this.status = RequestStatus.Error;
+          this.error = 'Username or password is incorrect';
+        }, 2000)
+      } catch {
+          this.status = RequestStatus.Error;
+      }
+    }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
@@ -172,4 +201,7 @@ export default {
   }
 }
 
+.alert {
+  @apply bg-error px-3 py-2 text-on-error rounded mb-3;
+}
 </style>

@@ -13,12 +13,12 @@
             <div class="title">Signin to:</div>
             <div class="subtitle">Accounting</div>
           </div>
+          <ng-container *ngIf="status === RequestStatus.Error">
+            <div class="alert">
+              {{error}}
+            </div>
+          </ng-container>
           <div class="form">
-            <ng-container *ngIf="status === RequestStatus.Error">
-              <div class="alert">
-                {{error}}
-              </div>
-            </ng-container>
             <app-signin-form 
               [status]="status"
               (onFormSubmit)="onSubmit($event)">
