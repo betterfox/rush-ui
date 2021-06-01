@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import tw from 'twin.macro';
 import { Collapse, List, ListItem, ListItemIcon, ListItemText } from "@material-ui/core";
-import SidebarItem from "./SidebarItem";
+import SidebarSubItem from "./SidebarSubItem";
 import AppIcon from "@/common/AppIcon";
 import styled from 'styled-components';
 
@@ -39,7 +39,7 @@ const SidebarCollapseItem = ({ item }: SidebarItemProps) => {
         <ListStyled>
           {
             (item.subMenus || []).map((subItem: SidebarItemDto) => {
-              return <SidebarItem isSubItem={true} key={subItem.name} item={subItem} />
+              return <SidebarSubItem key={subItem.name} item={subItem} />
             })
           }
         </ListStyled>
@@ -64,8 +64,9 @@ const Icon = styled(ListItemIcon)`
 `
 
 const ArrowIcon = styled(ListItemIcon)`
-  ${tw`w-8 flex items-center justify-center transform rotate-0 transition-transform`}
+  ${tw`absolute w-6 px-0 min-w-0 right-0 top-1/2 mr-4 h-full flex items-center justify-center text-sm font-bold transform -translate-y-1/2`}
 `
+
 
 const ListStyled = styled(List)`
   ${tw`bg-gray-50 py-1`}

@@ -1,15 +1,17 @@
-import {
-  Drawer,
-  List,
-} from "@material-ui/core";
+import { Drawer, List } from "@material-ui/core";
 import React, { useState } from "react";
 import tw from "twin.macro";
 import styled from "styled-components";
-import SidebarItem from './SidebarItem';
-import SidebarCollapseItem from './SidebarCollapseItem'
+import SidebarItem from "./SidebarItem";
+import SidebarCollapseItem from "./SidebarCollapseItem";
+import SidebarHeader from './SidebarHeader'
 
 const Sidebar = () => {
   const menus = [
+    {
+      name: "Views",
+      type: "header",
+    },
     {
       name: "Kanban Board",
       icon: "FiGrid",
@@ -53,6 +55,11 @@ const Sidebar = () => {
       name: "Issues",
       icon: "FiAlertCircle",
       link: "/issues",
+      counter: 2
+    },
+    {
+      name: "Setting",
+      type: "header",
     },
     {
       name: "Releases",
@@ -83,18 +90,15 @@ const Sidebar = () => {
   return (
     <DrawerStyled anchor="left" open={true} variant="permanent">
       <List>
-        {
-          menus.map((item) => {
-            if (item.subMenus) {
-              return (
-                <SidebarCollapseItem key={item.name} item={item} />
-              )
-            }
-            return (
-              <SidebarItem key={item.name} item={item} />
-            )
-          })
-        }
+        {menus.map((item) => {
+          if (item.type === "header") {
+            return <SidebarHeader key={item.name} item={item} />;
+          }
+          if (item.subMenus) {
+            return <SidebarCollapseItem key={item.name} item={item} />;
+          }
+          return <SidebarItem key={item.name} item={item} />;
+        })}
       </List>
     </DrawerStyled>
   );
@@ -106,6 +110,6 @@ const DrawerStyled = styled(Drawer)`
     padding-top: var(--navbar-height);
     ${tw`shadow`}
   }
-`
+`;
 
 export default Sidebar;
