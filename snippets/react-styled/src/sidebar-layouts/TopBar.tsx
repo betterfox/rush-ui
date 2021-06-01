@@ -1,49 +1,44 @@
-/** @jsx jsx */
-import { css, jsx } from '@emotion/react'
 import React, { ReactPropTypes, useState } from "react";
 import { Link as RouterLink } from "react-router-dom";
 import tw from "twin.macro";
 import {
   AppBar,
-  Badge,
   Box,
-  Hidden,
-  IconButton,
   Toolbar,
-  makeStyles,
-  Avatar,
-  Button,
-  Menu,
-  createMuiTheme,
 } from "@material-ui/core";
-import { FiInbox, FiMenu } from "react-icons/fi";
-
+import styled from 'styled-components';
+import AppLogo from './AppLogo';
+import AppSearchBox from "./AppSearchBox";
+import NavbarProfile from "./Navbar/NavbarProfile";
 interface TopbarProps {
   onMobileNavOpen?: () => void;
-  size?: "normal" | "small";
 }
 
-const TopBar = ({ onMobileNavOpen, size = "normal", ...rest }: TopbarProps) => {
-  const navbarHeight =
-    size == "normal"
-      ? "height: var(--navbar-height); min-height: var(--navbar-height);"
-      : "height: var(--navbar-small-height); min-height: var(--navbar-small-height);";
-
-  const navbarStyle = css`
-    ${navbarHeight}
-    z-index: 1200;
-    ${tw`shadow left-0 w-full flex bg-primary`}
-  `;
-  const toolBarStyle = css`
-    ${navbarHeight}
-    ${tw`px-0 pt-0`}
-  `
+const TopBar = ({ onMobileNavOpen }: TopbarProps) => {
   return (
-    <AppBar position="fixed" css={navbarStyle} elevation={1} {...rest}>
-      <Toolbar css={toolBarStyle}>
-      </Toolbar>
-    </AppBar>
+    <AppBarStyled position="fixed" elevation={1}>
+      <ToolbarStyled>
+        <AppLogo />
+        <AppSearchBox />
+        <Box flexGrow={1} />
+        <NavbarProfile />
+      </ToolbarStyled>
+    </AppBarStyled>
   );
 };
+
+const AppBarStyled = styled(AppBar)`
+  height: var(--navbar-height); 
+  min-height: var(--navbar-height);
+  z-index: 1200;
+  ${tw`shadow left-0 w-full flex bg-primary`}
+`
+
+const ToolbarStyled = styled(Toolbar)`
+  height: var(--navbar-height); 
+  min-height: var(--navbar-height);
+  z-index: 1200;
+  ${tw`px-0 pt-0`}
+`
 
 export default TopBar;

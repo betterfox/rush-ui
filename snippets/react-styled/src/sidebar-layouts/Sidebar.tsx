@@ -9,7 +9,7 @@ import SidebarHeader from './SidebarHeader'
 const Sidebar = () => {
   const menus = [
     {
-      name: "Views",
+      name: "Projects",
       type: "header",
     },
     {

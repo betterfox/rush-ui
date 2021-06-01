@@ -20,10 +20,10 @@ const SidebarItem = ({ item }: SidebarItemProps) => {
 };
 
 const Header = styled.div`
-  ${tw`px-5 py-1 text-sm font-bold opacity-75 mt-4`}
+  ${tw`px-5 py-1 text-xs font-bold opacity-75 mt-4 uppercase`}
 
   &:first-child {
-      ${tw`mt-2`}
+    ${tw`mt-2`}
   }
 `
 
