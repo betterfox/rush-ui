@@ -3,6 +3,7 @@ import SigninCardPage from './signin/SigninCard';
 import SigninSplitCardPage from './signin/SigninSplitCard';
 import EmptyLayout from './layouts/EmptyLayout';
 import { Navigate } from 'react-router';
+import SidebarLayout from './sidebar-layouts/SidebarLayout';
 
 const routes = [
   { 
@@ -16,7 +17,11 @@ const routes = [
       {
         path: '/signin/split-card',
         element: <SigninSplitCardPage />
-      }
+      },
+      {
+        path: '/sidebar-layouts',
+        element: <SidebarLayout />
+      },
     ]
   }
 ];
